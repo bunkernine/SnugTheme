@@ -1,0 +1,394 @@
+<div class="wishit-gallery-collection-holder section-{{ section.id }}-padding">
+  <div class="page-width">
+     {% if section.settings['main-heading'] != blank %}
+      <h2 style="margin: 20px; font-weight: bold; text-align: center; color:{{ section.settings.main-heading-color }}; font-size:{{ section.settings.heading-size }}px;">
+        {{ section.settings['main-heading'] }}
+      </h2>
+    {% endif %}
+    <div class="inner-wishit-gallery-collection-holder">
+      {% for block in section.blocks %}
+        <div class="wishit-gallery-with-text__card">
+        
+          {% if block.settings.image != blank %}
+            <div class="wishit-gallery-with-text__media">
+              <img src="{{ block.settings.image | img_url: '640x' }}" loading="lazy" alt="{{ block.settings.image.alt | escape }}"/>
+            </div>
+          {% else %}
+            <div class="wishit-gallery-with-text__media">
+              <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-2_large.png" />
+            </div>
+          {% endif %}
+        
+          {% if block.settings.collection_title != blank %}<h3 class="wishit-gallery-with-text__title subtitle">{{ block.settings.collection_title }}</h3>{% endif %}
+
+          {% if block.settings.url != blank %}
+            <a href="{{ block.settings.url }}" class="wishit-link--overlay" style="background-color: {{ block.settings.overlay_bg_color | color_modify: 'alpha', block.settings.image_overlay_opacity }};"></a>
+          {% endif %} 
+          {% if block.settings.title != blank %}
+          <div class="wishit-gallery-with-text__info">
+            <div class="wishit-gallery-with-text__info-item">
+              <h2 style="font-size: {{ section.settings.title-size }}px;" class="wishit-gallery-with-text__info-title mt-0 title--section">{{ block.settings.title }}</h2>
+              <div style="font-size: {{ section.settings.content-size }}px;" class="wishit-gallery-with-text__text">{{ block.settings.content }}</div>
+              <a style="background-color: {{ section.settings.background-button }}; color: {{ section.settings.button-text-color }}" href="{{ block.settings.url }}" class="gallery-with-text__button"><span>{{ block.settings.button-text }}</span></a>
+            </div>
+          </div>
+          {% endif %}
+          
+        </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+</div>
+
+<style>
+.section-{{ section.id }}-padding {
+  padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+  padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  background-color: {{ section.settings.background-color }};
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+@media only screen and (min-width: 990px) {
+  .wishit-gallery-with-text__card.active .wishit-gallery-with-text__info {
+  opacity: 1;
+  transition: .5s .8s cubic-bezier(.29,0,.2,1);
+  }
+  .wishit-gallery-with-text__info {
+  opacity: 0;
+  }
+  .wishit-gallery-with-text__card {
+    height: 500px !important;
+  }
+}
+
+.inner-wishit-gallery-collection-holder {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.wishit-link--overlay {
+    display: block !important;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}  
+.wishit-gallery-with-text__card:hover {
+    flex: 4;
+}
+.wishit-gallery-with-text__info-item {
+    max-width: 35rem;
+    overflow: hidden;
+    text-align: center;
+}
+.wishit-gallery-with-text__card:hover .wishit-gallery-with-text__info {
+  opacity: 1;
+    transition: .5s .8s cubic-bezier(.29,0,.2,1);
+  }  
+.wishit-gallery-with-text__card { 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 0 0 100%;
+    transition: flex .8s cubic-bezier(.29,0,.2,1);
+    will-change: flex;
+    overflow: hidden;
+    height: auto;
+}
+.wishit-gallery-with-text__card {
+    flex: 1;
+}
+.wishit-gallery-with-text__media {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.wishit-gallery-with-text__title.subtitle {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    margin: 0;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    z-index: 2;
+    color: {{ section.settings.text-color }};
+    font-size: {{ section.settings.label-font }}px;
+    letter-spacing: 2px;
+}
+.wishit-gallery-with-text__info {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}  
+.wishit-gallery-with-text__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.wishit-gallery-with-text__info-item h2 {
+    color: {{ section.settings.text-color }};
+    margin: 0;
+    font-size: 30px;
+}
+.wishit-gallery-with-text__info-item p {
+    color: {{ section.settings.text-color }};
+    position: relative;
+    z-index: 9;
+}
+.wishit-gallery-with-text__info-item .gallery-with-text__button {
+    z-index: 9;
+    position: relative;
+    padding: 10px 30px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .wishit-gallery-with-text__info{
+    min-height: 300px;
+    padding-bottom: 0px;
+  }
+  .wishit-gallery-with-text__card{
+    min-height: 300px;    
+  }
+
+  .inner-wishit-gallery-collection-holder {
+    display: block;
+  }
+  .wishit-gallery-with-text__title.subtitle {
+    font-size: 10px;
+    letter-spacing: 2px;
+    left: 8px;
+  }  
+}
+
+a.wishit-link--overlay {
+  visibility: hidden;
+}
+.wishit-gallery-with-text__card:hover:hover a.wishit-link--overlay {
+    visibility: visible;
+}
+  
+</style>
+
+{% schema %}
+  {
+    "name": "WishIt Collection Grid 1",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Wishit Customization Support",
+        "info": "For any customizations required in this section, feel free to write to us at contact@adevole.com"
+      },
+      {
+        "type": "color",
+        "id": "background-color",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Header Settings"
+      },
+      {
+        "type": "text",
+        "id": "main-heading",
+        "label": "Heading"
+      },
+      {
+        "type": "color",
+        "id": "main-heading-color",
+        "label": "Heading Color"
+      },
+      {
+        "type": "range",
+        "id": "heading-size",
+        "label": "Heading Size",
+        "min": 15,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 32
+      },
+      {
+        "type": "header",
+        "content": "Section Content Settings"
+      },
+      {
+        "type": "range",
+        "id": "label-size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Collection Title Size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "title-size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Content Title Size",
+        "default": 26
+      },
+      {
+        "type": "range",
+        "id": "content-size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Content Description Size",
+        "default": 14
+      },
+      {
+        "type": "color",
+        "id": "text-color",
+        "label": "Content Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "background-button",
+        "label": "Button Background",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "button-text-color",
+        "label": "Button Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 50
+      }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+       {
+         "name": "Slide",
+         "type": "slide",
+         "settings": [
+           {
+             "type": "text",
+             "id": "collection_title",
+             "label": "Collection Title",
+             "default": "COLLECTION TITLE"
+           },
+           {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+           },
+           {
+             "type": "color",
+             "id": "overlay_bg_color",
+             "default": "transparent",
+             "label": "Overlay Background Color",
+             "default": "#000000"
+           },
+           {
+             "type": "range",
+             "id": "image_overlay_opacity",
+             "min": 0,
+             "max": 1,
+             "step": 0.1,
+             "unit": "%",
+             "label": "Overlay Opacity",
+             "default": 0.4
+           },
+           {
+             "type": "header",
+             "content": "Content"
+           },
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Title",
+             "default": "Title"
+           },
+           {
+             "type": "richtext",
+             "id": "content",
+             "label": "Content",
+             "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>"
+           },
+           {
+             "type": "text",
+             "id": "button-text",
+             "label": "Button Text",
+             "default": "SHOP ALL"
+           },
+           {
+             "type": "url",
+             "id": "url",
+             "label": "Url"
+           }
+         ]
+       }
+    ],
+    "presets": [
+      {
+        "name": "WishIt Collection Grid 1",
+        "blocks": [
+          {
+            "type" : "slide"
+          },
+          {
+            "type" : "slide"
+          },
+          {
+            "type" : "slide"
+          },
+          {
+            "type" : "slide"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<script type="text/javascript">"undefined"==typeof wishit_script&&((wishit_script=document.createElement("script")).src="https://ccp.eshopcrm.com/wishit-license.js",wishit_script.async=!0,document.head.appendChild(wishit_script));</script>
+<script type="text/javascript">"undefined"==typeof wishit_script&&((wishit_script=document.createElement("script")).src="https://ccp.eshopcrm.com/wishit-license.js",wishit_script.async=!0,document.head.appendChild(wishit_script));</script>

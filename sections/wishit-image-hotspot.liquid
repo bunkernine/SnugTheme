@@ -1,0 +1,344 @@
+<div class="wishit-image-hotspot" style="background-color: {{ section.settings.background-color }}; {% if section.settings.max_width != 0 %} max-width: {{ section.settings.max_width }}px; margin: auto; {% endif %}">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 style="text-align: {{ section.settings.heading-align }}; font-size: {{ section.settings.heading-size }}px; color: {{ section.settings.heading-color }};">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+    <div class="wishit-hotspot-flex{% if section.settings.image-position == 'right' %} right_image_position{% endif %}">
+      <div class="wishit-hotspot-main-image">
+        {% if section.settings['main-image'] != blank %}
+          <div class="wishit-main-img">
+            <img src="{{ section.settings.main-image | img_url: '800x' }}"  loading="lazy">
+            {% for block in section.blocks %}
+              <div class="wishit-hotspots__buttons" style="left: {{ block.settings.horizontal_align }}%; top: {{ block.settings.vertical_align }}%;">
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-bag"
+                    viewBox="0 0 64 64"
+                  >
+                    <g fill="none" stroke="#000" stroke-width="2"><path d="M25 26c0-15.79 3.57-20 8-20s8 4.21 8 20"></path><path d="M14.74 18h36.51l3.59 36.73h-43.7z"></path></g>
+                  </svg>
+                </span>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="wishit-hotspot-product-holder">
+        <div class="wishit-hotspot-products">
+          {% for block in section.blocks %}
+            <div class="wishit-hotspot-single-product">
+              {% assign product_selected = all_products[block.settings['product-selected']] %}
+              <div>
+                <img src="{{ product_selected.featured_image | image_url: width: 100 }}" loading="lazy">
+              </div>
+              <div class="wishit-hotspot-single-product-info">
+                <h3>{{ product_selected.title }}</h3><span>{{ product_selected.price | money }}</span
+                ><a href='{{ product_selected.url }}' target="_blank" class="wishit-hotspot-button">{{ section.settings.button-text }}</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% style %}
+  .right_image_position .wishit-hotspot-main-image {
+      order: 2;
+  }
+  .wishit-image-hotspot h2 {
+      margin-top: 0;
+      font-weight: 600;
+  }
+  .wishit-hotspot-flex {
+      display: flex;
+      justify-content: space-between;
+  }
+  .wishit-hotspot-single-product h3 {
+    margin: 0px 0px 5px 0px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .wishit-hotspot-main-image {
+      position: relative;
+      width: 68%;
+      font-size: 0;
+  }
+  .wishit-hotspot-main-image img {
+      width: 100%;
+  }
+  .wishit-hotspots__buttons {
+      position: absolute;      
+      cursor: pointer;
+  }
+  .wishit-hotspot-single-product div{
+    flex: 0 0 130px;
+  }
+  .wishit-hotspot-single-product a {
+      text-decoration: none;
+  }
+  .wishit-hotspots__buttons span {
+      color: #fff;
+      background-color: #000000;
+      animation: pulse 2s infinite;
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+      line-height: 0;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+  }
+  .wishit-hotspots__buttons span svg {
+      width: 20px;
+      height: 20px;
+  }
+  .wishit-hotspots__buttons span svg g {
+      fill: #fff;
+  }
+  .wishit-image-hotspot {
+      padding: 50px 0;
+  }
+  .wishit-hotspot-product-holder {
+      width: 28%;
+      display: flex;
+  }
+  .wishit-hotspot-single-product img {
+      width: 800px;
+      max-width: 100%;
+  }
+  .wishit-hotspot-products {
+      width: 100%;
+      top: 0;
+  }
+  .wishit-main-img{
+    position: relative
+  }
+  .wishit-hotspot-single-product {
+      display: inline-flex;
+      text-align: center;
+      transition: 2s opacity;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      width: 100%;
+      border-bottom: 1px solid #cccccc45;
+  }
+  .wishit-hotspots__buttons{
+    transition: 0.5s transform;
+  }
+  .wishit-hotspots__buttons:hover{
+    transform: scale(1.2);
+  }
+  .wishit-hotspot-single-product div img{
+    width: 100px;
+    max-height: 120px
+    object-fit: contain;
+    margin: 0 auto;
+    max-width: 100%;
+    display: inline-flex;
+  }
+  .wishit-hotspot-single-product span{
+    display: block;
+    color: black;
+  }
+  .wishit-hotspot-button{
+    padding: 2px 5px;
+    background: {{section.settings.button-background-color}};
+    color: {{section.settings.button-text-color}};
+    width: 100px;
+    text-align: center;
+    margin-top: 5px;
+  }
+  .wishit-hotspot-single-product-info{
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  @media screen and (max-width: 767px) {
+    .wishit-hotspot-flex{
+      display: block;
+    }
+    .wishit-hotspot-main-image,.wishit-hotspot-product-holder{
+      width: 100%;
+    }
+    .wishit-hotspot-products{
+      flex-direction: column;
+    }
+    .wishit-hotspot-product-holder{
+      margin-top: 50px;
+    }
+  }
+{% endstyle %}
+<script>
+var elements = document.getElementsByClassName("wishit-hotspot-single-product");
+/*for (var i = 0; i < elements.length; i++) {
+    elements[i].style.display = "none";
+    elements[i].style.opacity = 1;
+}
+elements[0].style.display = "block";
+elements[0].style.opacity = 1;
+  
+var currentProductIndex = 0;
+var showHotspotProduct = setInterval(intervalShowProduct, 6000)
+function intervalShowProduct(){
+  elements[currentProductIndex].style.display = "none";
+  elements[currentProductIndex].style.opacity = 0;
+  currentProductIndex++;
+  if(currentProductIndex == elements.length) currentProductIndex = 0;
+  elements[currentProductIndex].style.display = "block";
+  elements[currentProductIndex].style.opacity = 1;
+}*/
+</script>
+{% schema %}
+{
+  "name": "WishIt Image Hotspot",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Wishit Customization Support",
+      "info": "For any customizations required in this section, feel free to write to us at contact@adevole.com"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Color"
+    },{
+       "type": "number",
+       "id": "max_width",
+       "label": "Max Width of the section",
+       "info": "Set 0 to disable max-width",
+       "default": 1200
+    },
+    {
+      "type": "image_picker",
+      "id": "main-image",
+      "label": "Main Image"
+    },
+    {
+      "type": "select",
+      "id": "image-position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading-size",
+      "label": "Heading Size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "heading-color",
+      "label": "Heading Color"
+    },
+    {
+      "type": "select",
+      "id": "heading-align",
+      "label": "Heading Align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Shop Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "Shop Now Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "color",
+      "id": "button-text-color",
+      "label": "Shop Now Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button-background-color",
+      "label": "Shop Now Button Color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Product",
+       "type": "product",
+       "settings": [
+         {
+           "type": "product",
+           "id": "product-selected",
+           "label": "Select Product"
+         },
+         {
+           "type": "range",
+           "id": "horizontal_align",
+           "label": "Horizontal SVG Align",
+           "min": 0,
+           "max": 100,
+           "step": 1,
+           "unit": "%",
+           "default": 50
+         },
+         {
+           "type": "range",
+           "id": "vertical_align",
+           "label": "Vertical SVG Align",
+           "min": 0,
+           "max": 100,
+           "step": 1,
+           "unit": "%",
+           "default": 50
+         }
+       ]
+     }
+  ],
+  "presets": [
+    {
+      "name": "WishIt Image Hotspot"
+    }
+  ]
+}
+{% endschema %}
+<script type="text/javascript">"undefined"==typeof wishit_script&&((wishit_script=document.createElement("script")).src="https://ccp.eshopcrm.com/wishit-license.js",wishit_script.async=!0,document.head.appendChild(wishit_script));</script>

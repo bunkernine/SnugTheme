@@ -1,0 +1,914 @@
+<!-- go cart modal fail -->
+<div class="go-cart__modal go-cart__modal--fail js-go-cart-modal-fail">
+  <div class="go-cart-modal">
+    <!-- go cart modal close -->
+    <div class="go-cart-modal__close js-go-cart-modal-fail-close"></div>
+    <!-- end go cart modal close -->
+
+    <!-- go cart modal content -->
+    <div class="go-cart-modal__content js-go-cart-modal-fail-content">Something went wrong, please contact us!</div>
+    <!-- end go cart modal content -->
+  </div>
+</div>
+<!-- end go cart modal fail -->
+
+<!-- go cart modal -->
+<div class="go-cart__modal js-go-cart-modal">
+  <div class="go-cart-modal">
+    <!-- go cart modal close -->
+    <div class="go-cart-modal__close js-go-cart-modal-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+        <path
+          d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z">
+        </path>
+      </svg>
+    </div>
+    <!-- end go cart modal close -->
+
+    <!-- go cart modal content -->
+    <div class="go-cart-modal__content js-go-cart-modal-content"></div>
+    <!-- end go cart modal content -->
+
+    <!-- go cart modal buttons -->
+    <div class="go-cart-modal__buttons">
+      <a class="go-cart__button js-go-cart-modal-close">Continue shopping</a>
+
+      <a href="/cart/" class="go-cart__button">Look in my cart</a>
+    </div>
+    <!-- end go cart modal buttons -->
+  </div>
+</div>
+<!-- end go cart modal -->
+
+<!-- go cart drawer -->
+<div class="go-cart__drawer js-go-cart-drawer go-cart__drawer--right">
+  <div class="go-cart-drawer">
+    <!-- go cart drawer close -->
+    <div>
+      <div class="go-cart-drawer-header">
+        <div class="go-cart-drawer__close js-go-cart-drawer-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+            <path
+              d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z">
+            </path>
+          </svg>
+        </div>
+
+        <!-- cart button -->
+        <div class="go-cart__trigger js-go-cart-trigger">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="path-1-inside-1_409_7055" fill="white">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M6 6C6 2.68629 8.68629 0 12 0C15.3137 0 18 2.68629 18 6H20C22.2091 6 24 7.79086 24 10V20C24 22.2091 22.2091 24 20 24H4C1.79086 24 0 22.2091 0 20V10C0 7.79086 1.79086 6 4 6H6ZM12 1.6C14.4301 1.6 16.4 3.56995 16.4 6H7.6C7.6 3.56995 9.56995 1.6 12 1.6ZM1.6 20V10C1.6 8.67452 2.67452 7.6 4 7.6H20C21.3255 7.6 22.4 8.67452 22.4 10V20C22.4 21.3255 21.3255 22.4 20 22.4H4C2.67452 22.4 1.6 21.3255 1.6 20Z">
+              </path>
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6 6C6 2.68629 8.68629 0 12 0C15.3137 0 18 2.68629 18 6H20C22.2091 6 24 7.79086 24 10V20C24 22.2091 22.2091 24 20 24H4C1.79086 24 0 22.2091 0 20V10C0 7.79086 1.79086 6 4 6H6ZM12 1.6C14.4301 1.6 16.4 3.56995 16.4 6H7.6C7.6 3.56995 9.56995 1.6 12 1.6ZM1.6 20V10C1.6 8.67452 2.67452 7.6 4 7.6H20C21.3255 7.6 22.4 8.67452 22.4 10V20C22.4 21.3255 21.3255 22.4 20 22.4H4C2.67452 22.4 1.6 21.3255 1.6 20Z"
+              fill="#040404"></path>
+          </svg>
+
+          <span class="js-go-cart-counter"></span>
+        </div>
+        <!-- end cart button -->
+      </div>
+      <div class="go-cart-drawer__header js-go-cart-drawer-main-header">
+        <h3 class="go-cart-drawer__title">
+          <span>Sepet: <span class="js-go-cart-drawer-item-count"></span> ürün</span>
+          <span class="js-go-cart-drawer-subtotal"></span>
+        </h3>
+      </div>
+      <style>
+        :root {
+          --transform-origin-start: left;
+        }
+
+        .shipping-bar {
+          --progress: 0.5;
+        }
+
+        .shipping-bar .cdtm-mian {
+          justify-content: flex-end;
+        }
+
+        .shipping-bar.range {
+          --progress: 0.04;
+        }
+
+        .shipping-bar.range .cdtm-mian {
+          justify-content: space-around;
+        }
+      </style>
+
+      <free-shipping-bar threshold="84000" class="shipping-bar" style="--progress: 0;">
+        <span class="shipping-bar__text text--small blink"></span>
+        <div class="car-bar-gifts">
+          <span class="shipping-bar__progress"></span>
+
+          <div class="cdtm-mian">
+            <div class="free-products-text">
+              <div class="gifts_card_box" id="tier-1">
+                <span class="free-shipping-text">Ücretsiz kargo</span>
+                <span class="free-shipping-icon">
+                  <img
+                    src="{{ 'free-delivery.svg' | file_url }}"
+                    alt="Sepet Kampanyası"
+                    srcset="{{ 'free-delivery.svg' | file_url }} 20w"
+                    width="20" height="20">
+                </span>
+              </div>
+              <span>1000₺</span>
+            </div>
+
+            <div class="free-products-text">
+              <div class="gifts_card_box" id="tier-2">
+                <span class="free-shipping-text">%10 İNDİRİM</span>
+              </div>
+              <span>{{ settings.free_shipping_threshold }}₺</span>
+            </div>
+          </div>
+        </div>
+      </free-shipping-bar>
+
+      <div class="modal modal--giftBoxAndNote" style="display: none">
+        <div class="modal__cover"></div>
+        <div class="modal__inner">
+          <div class="modal__header">
+            <button class="modal__close">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="12" fill="#040404"></circle>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M8.56066 7.5L12.3107 11.25L15.8524 7.7083L16.9131 8.76896L13.3713 12.3107L16.9131 15.8524L15.8524 16.9131L12.3107 13.3713L8.56066 17.1214L7.5 16.0607L11.25 12.3107L7.5 8.56066L8.56066 7.5Z"
+                  fill="white"></path>
+              </svg>
+            </button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="path-1-inside-1_218_7240" fill="white">
+                <path
+                  d="M12 1.6C14.0569 1.6 16.0677 2.20995 17.7779 3.35272C19.4882 4.49548 20.8212 6.11974 21.6084 8.02009C22.3955 9.92044 22.6015 12.0115 22.2002 14.0289C21.7989 16.0463 20.8084 17.8994 19.3539 19.3539C17.8994 20.8084 16.0463 21.7989 14.0289 22.2002C12.0115 22.6014 9.92045 22.3955 8.0201 21.6083C6.11975 20.8212 4.49548 19.4882 3.35271 17.7779C2.20995 16.0677 1.60001 14.0569 1.60001 12C1.60476 9.24321 2.702 6.6007 4.65135 4.65135C6.60069 2.702 9.24321 1.60476 12 1.6ZM12 0C9.62663 0 7.30655 0.703786 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913445 7.4078C0.0051938 9.60051 -0.232439 12.0133 0.230584 14.3411C0.693606 16.6689 1.8365 18.8071 3.51473 20.4853C5.19296 22.1635 7.33114 23.3064 9.65891 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0865C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C24 8.8174 22.7357 5.76515 20.4853 3.51471C18.2348 1.26428 15.1826 0 12 0Z">
+                </path>
+                <path
+                  d="M8.02209 7.75605C7.75983 7.75605 7.50346 7.83382 7.2854 7.97953C7.06734 8.12523 6.89739 8.33232 6.79702 8.57461C6.69666 8.81691 6.67041 9.08353 6.72157 9.34074C6.77274 9.59796 6.89902 9.83423 7.08446 10.0197C7.26991 10.2051 7.50618 10.3314 7.76339 10.3826C8.02061 10.4337 8.28724 10.4075 8.52953 10.3071C8.77183 10.2068 8.97891 10.0368 9.12461 9.81874C9.27032 9.60068 9.34809 9.34431 9.34809 9.08205C9.34809 8.73038 9.20838 8.39311 8.95971 8.14443C8.71103 7.89576 8.37376 7.75605 8.02209 7.75605Z">
+                </path>
+                <path
+                  d="M15.978 7.75605C15.7157 7.75605 15.4593 7.83382 15.2413 7.97953C15.0232 8.12523 14.8532 8.33232 14.7529 8.57461C14.6525 8.81691 14.6263 9.08353 14.6774 9.34074C14.7286 9.59796 14.8549 9.83423 15.0403 10.0197C15.2258 10.2051 15.462 10.3314 15.7193 10.3826C15.9765 10.4337 16.2431 10.4075 16.4854 10.3071C16.7277 10.2068 16.9348 10.0368 17.0805 9.81874C17.2262 9.60068 17.304 9.34431 17.304 9.08205C17.304 8.73038 17.1643 8.39311 16.9156 8.14443C16.6669 7.89576 16.3296 7.75605 15.978 7.75605Z">
+                </path>
+                <path
+                  d="M12 17.2C11.3171 17.2 10.6409 17.0655 10.01 16.8042C9.37915 16.5428 8.80591 16.1598 8.32304 15.6769C7.84018 15.1941 7.45715 14.6208 7.19582 13.99C6.9345 13.3591 6.8 12.6829 6.8 12H5.2C5.2 13.8035 5.91643 15.5331 7.19167 16.8083C8.46692 18.0836 10.1965 18.8 12 18.8C13.8035 18.8 15.5331 18.0836 16.8083 16.8083C18.0836 15.5331 18.8 13.8035 18.8 12H17.2C17.2 12.6829 17.0655 13.3591 16.8042 13.99C16.5428 14.6208 16.1598 15.1941 15.6769 15.6769C15.1941 16.1598 14.6208 16.5428 13.99 16.8042C13.3591 17.0655 12.6829 17.2 12 17.2Z">
+                </path>
+              </mask>
+              <path
+                d="M12 1.6C14.0569 1.6 16.0677 2.20995 17.7779 3.35272C19.4882 4.49548 20.8212 6.11974 21.6084 8.02009C22.3955 9.92044 22.6015 12.0115 22.2002 14.0289C21.7989 16.0463 20.8084 17.8994 19.3539 19.3539C17.8994 20.8084 16.0463 21.7989 14.0289 22.2002C12.0115 22.6014 9.92045 22.3955 8.0201 21.6083C6.11975 20.8212 4.49548 19.4882 3.35271 17.7779C2.20995 16.0677 1.60001 14.0569 1.60001 12C1.60476 9.24321 2.702 6.6007 4.65135 4.65135C6.60069 2.702 9.24321 1.60476 12 1.6ZM12 0C9.62663 0 7.30655 0.703786 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913445 7.4078C0.0051938 9.60051 -0.232439 12.0133 0.230584 14.3411C0.693606 16.6689 1.8365 18.8071 3.51473 20.4853C5.19296 22.1635 7.33114 23.3064 9.65891 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0865C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C24 8.8174 22.7357 5.76515 20.4853 3.51471C18.2348 1.26428 15.1826 0 12 0Z"
+                fill="#040404"></path>
+              <path
+                d="M8.02209 7.75605C7.75983 7.75605 7.50346 7.83382 7.2854 7.97953C7.06734 8.12523 6.89739 8.33232 6.79702 8.57461C6.69666 8.81691 6.67041 9.08353 6.72157 9.34074C6.77274 9.59796 6.89902 9.83423 7.08446 10.0197C7.26991 10.2051 7.50618 10.3314 7.76339 10.3826C8.02061 10.4337 8.28724 10.4075 8.52953 10.3071C8.77183 10.2068 8.97891 10.0368 9.12461 9.81874C9.27032 9.60068 9.34809 9.34431 9.34809 9.08205C9.34809 8.73038 9.20838 8.39311 8.95971 8.14443C8.71103 7.89576 8.37376 7.75605 8.02209 7.75605Z"
+                fill="#040404"></path>
+              <path
+                d="M15.978 7.75605C15.7157 7.75605 15.4593 7.83382 15.2413 7.97953C15.0232 8.12523 14.8532 8.33232 14.7529 8.57461C14.6525 8.81691 14.6263 9.08353 14.6774 9.34074C14.7286 9.59796 14.8549 9.83423 15.0403 10.0197C15.2258 10.2051 15.462 10.3314 15.7193 10.3826C15.9765 10.4337 16.2431 10.4075 16.4854 10.3071C16.7277 10.2068 16.9348 10.0368 17.0805 9.81874C17.2262 9.60068 17.304 9.34431 17.304 9.08205C17.304 8.73038 17.1643 8.39311 16.9156 8.14443C16.6669 7.89576 16.3296 7.75605 15.978 7.75605Z"
+                fill="#040404"></path>
+              <path
+                d="M12 17.2C11.3171 17.2 10.6409 17.0655 10.01 16.8042C9.37915 16.5428 8.80591 16.1598 8.32304 15.6769C7.84018 15.1941 7.45715 14.6208 7.19582 13.99C6.9345 13.3591 6.8 12.6829 6.8 12H5.2C5.2 13.8035 5.91643 15.5331 7.19167 16.8083C8.46692 18.0836 10.1965 18.8 12 18.8C13.8035 18.8 15.5331 18.0836 16.8083 16.8083C18.0836 15.5331 18.8 13.8035 18.8 12H17.2C17.2 12.6829 17.0655 13.3591 16.8042 13.99C16.5428 14.6208 16.1598 15.1941 15.6769 15.6769C15.1941 16.1598 14.6208 16.5428 13.99 16.8042C13.3591 17.0655 12.6829 17.2 12 17.2Z"
+                fill="#040404"></path>
+            </svg>
+          </div>
+          <div class="modal__body">
+            <div class="modal__body__marquee-container">
+              <div class="modal__body__marquee-container-text">
+                <p>
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"
+                      >The green cover on the outside of the selected product is intended to protect the gift box and is
+                      sent with a shipping label attached to it.</font
+                    >
+                  </font>
+                </p>
+              </div>
+            </div>
+
+            <style>
+              @media screen and (max-width: 767px) {
+                .modal--giftBoxAndNote .collection__products-list {
+                  gap: 10px;
+                }
+              }
+
+              .modal--giftBoxAndNote #giftBoxes {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+              }
+
+              .modal--giftBoxAndNote .modal__body {
+                max-width: 45rem;
+                width: 100%;
+              }
+
+              .modal--giftBoxAndNote .modal__inner {
+                max-width: 45rem;
+                max-height: 100%;
+                overflow-y: scroll;
+              }
+            </style>
+            <script>
+              window.gift = {
+                product: [],
+                inBasket: false,
+                lang: {
+                  textarea_placeholder: "Hediyenin sahibine bir not iletmek ister misin? Notun otomatik basılıp eklenir.",
+                  add_to_basket: "Sepete ekle"
+                }
+              }
+            </script>
+            <div class="collection__products-list product-grid" id="giftBoxes">
+              <script>
+                window.gift.product.push({
+                  variantID: "40773897748561",
+                  handle: "hediye-paketi-jcwho8mm"
+                });
+              </script>
+              <div class="gift-product-card gap-16" id="hediye-paketi-jcwho8mm">
+                <div class="gift-product-card__image">
+                  <img
+                    src="//wwfmarket.com/cdn/shop/files/boxboxnew.gif?v=1708501870&amp;width=1500"
+                    alt="Large Gift Package (37*48*14)"
+                    srcset="//wwfmarket.com/cdn/shop/files/boxboxnew.gif?v=1708501870&amp;width=352 352w, //wwfmarket.com/cdn/shop/files/boxboxnew.gif?v=1708501870&amp;width=832 832w, //wwfmarket.com/cdn/shop/files/boxboxnew.gif?v=1708501870&amp;width=1200 1200w, //wwfmarket.com/cdn/shop/files/boxboxnew.gif?v=1708501870&amp;width=1500 1500w"
+                    width="1500"
+                    height="2668"
+                    loading="lazy"
+                    class="gift-product-card__image gift-product-card__image--first"
+                  >
+                </div>
+                <div class="gift-product-card__detail">
+                  <div class="gift-product-card__title-wrapper">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;"> Large Gift Package (37*48*14) </font>
+                    </font>
+                    <!--
+                      <a href="/products/buyuk-boy-hediye-paketi" class="gift-product-card__title">Büyük Boy Hediye Paketi (37*48*14)</a>
+                    -->
+                    <div class="gift-product-card__variants"></div>
+                  </div>
+                </div>
+                <div class="gift-product-card__detail">
+                  <div class="gift-product-card__description-wrapper">
+                    <span class="gift-product-card__description">
+                      <div style="text-align: left;">
+                        <strong>
+                          <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Approximately 3 hoodies fit in this box.</font>
+                          </font>
+                        </strong>
+                      </div>
+                      <ul></ul>
+                      <ul></ul>
+                    </span>
+                  </div>
+
+                  <div class="gift-product-card__price-wrapper">
+                    <span class="gift-product-card__price">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">49.90₺</font>
+                      </font>
+                    </span>
+                  </div>
+
+                  <div class="gift-product-card__size-list">
+                    <button
+                      type="submit"
+                      name="add"
+                      data-add-to-cart-quick=""
+                      class="gift-product-card__size button--black js-go-cart-add-to-cart-quick button w-full"
+                      data-variantid="40773897748561"
+                    >
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">add to Basket</font>
+                      </font>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <script>
+                window.gift.product.push({
+                  variantID: "40773894504529",
+                  handle: "hediye-paketi-m4oiyvn5"
+                });
+              </script>
+              <div class="gift-product-card gap-16" id="hediye-paketi-m4oiyvn5">
+                <div class="gift-product-card__image">
+                  <img
+                    src="//wwfmarket.com/cdn/shop/files/boxboxnew_a2b57c3b-ac76-4683-9a19-f33e15730a06.gif?v=1708501876&amp;width=1500"
+                    alt="Medium Size Gift Package (28*37*11)"
+                    srcset="//wwfmarket.com/cdn/shop/files/boxboxnew_a2b57c3b-ac76-4683-9a19-f33e15730a06.gif?v=1708501876&amp;width=352 352w, //wwfmarket.com/cdn/shop/files/boxboxnew_a2b57c3b-ac76-4683-9a19-f33e15730a06.gif?v=1708501876&amp;width=832 832w, //wwfmarket.com/cdn/shop/files/boxboxnew_a2b57c3b-ac76-4683-9a19-f33e15730a06.gif?v=1708501876&amp;width=1200 1200w, //wwfmarket.com/cdn/shop/files/boxboxnew_a2b57c3b-ac76-4683-9a19-f33e15730a06.gif?v=1708501876&amp;width=1500 1500w"
+                    width="1500"
+                    height="2668"
+                    loading="lazy"
+                    class="gift-product-card__image gift-product-card__image--first"
+                  >
+                </div>
+                <div class="gift-product-card__detail">
+                  <div class="gift-product-card__title-wrapper">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;"> Medium Size Gift Package (28*37*11) </font>
+                    </font>
+                    <!--
+                      <a href="/products/orta-boy-hediye-paketi" class="gift-product-card__title">Orta Boy Hediye Paketi (28*37*11)</a>
+                    -->
+                    <div class="gift-product-card__variants"></div>
+                  </div>
+                </div>
+                <div class="gift-product-card__detail">
+                  <div class="gift-product-card__description-wrapper">
+                    <span class="gift-product-card__description">
+                      <div style="text-align: left;">
+                        <strong>
+                          <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Approximately 2 hoodies fit in this box.</font>
+                          </font>
+                        </strong>
+                      </div>
+                      <ul></ul>
+                      <ul></ul>
+                    </span>
+                  </div>
+
+                  <div class="gift-product-card__price-wrapper">
+                    <span class="gift-product-card__price">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">39.90₺</font>
+                      </font>
+                    </span>
+                  </div>
+
+                  <div class="gift-product-card__size-list">
+                    <button
+                      type="submit"
+                      name="add"
+                      data-add-to-cart-quick=""
+                      class="gift-product-card__size button--black js-go-cart-add-to-cart-quick button w-full"
+                      data-variantid="40773894504529"
+                    >
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">add to Basket</font>
+                      </font>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal__footer">
+            <div class="giftNoteContainer pointer-events-none">
+              <div id="giftNoteArea" class="content blur-background">
+                <hr>
+                <div class="textAndCount mt-16 flex justify-between flex-row items-center">
+                  <div class="giftText">
+                    <p>
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Gift Note:</font>
+                      </font>
+                    </p>
+                  </div>
+                  <div id="character-counter" class="text-gray text-sm">
+                    <span id="typed-characters">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">0 </font>
+                      </font>
+                    </span>
+                    <span>
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">/ </font>
+                      </font>
+                    </span>
+                    <span id="maximum-characters">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">331</font>
+                      </font>
+                    </span>
+                  </div>
+                </div>
+                <textarea
+                  maxlength="331"
+                  id="gift-note-textarea"
+                  cols="30"
+                  rows="2"
+                  placeholder="Would you like to send a note to the owner of the gift? Your note is automatically printed and added."
+                  class="border border-gray-light w-full rounded-md p-16 mt-16 mb-16 text-sm"
+                ></textarea>
+                <button type="submit" class="button go-minicart-from-giftBox button--green w-full">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"> CONTINUE </font>
+                  </font>
+                </button>
+              </div>
+              <div class="text-on-blur">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;"
+                    >To add a gift note, you must add the gift package to the cart.</font
+                  >
+                </font>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.querySelector("#gift-note-textarea").placeholder = window.gift.lang.textarea_placeholder;
+        const textAreaElement = document.querySelector("#gift-note-textarea");
+        const characterCounterElement = document.querySelector("#character-counter");
+        const typedCharactersElement = document.querySelector("#typed-characters");
+        const maximumCharacters = Number(textAreaElement.maxLength);
+        textAreaElement.addEventListener("keyup", (event) => {
+          const typedCharacters = textAreaElement.value.length;
+          if (typedCharacters > maximumCharacters) {
+            return false;
+          }
+          typedCharactersElement.textContent = typedCharacters.toString();
+          if (typedCharacters < Number(maximumCharacters * 0.66)) {
+            characterCounterElement.classList = "text-gray text-sm";
+          } else if (typedCharacters >= (maximumCharacters * 0.66) && typedCharacters < (maximumCharacters * 0.83)) {
+            characterCounterElement.classList = "text-orange text-sm";
+          } else if (typedCharacters >= (maximumCharacters * 0.83)) {
+            characterCounterElement.classList = "text-red text-sm";
+          }
+        });
+      </script>
+    </div>
+
+    <!-- end go cart drawer close -->
+    <div class="go-cart-drawer__content">
+      <!-- go cart drawer content -->
+      <div class="js-go-cart-drawer-content"></div>
+      <!-- end go cart drawer content -->
+
+      {% assign recommended_products = settings.recommended_products %}
+      {% if recommended_products != blank %}
+        <div class="byg">
+          <div class="scn_b4d85bb93e000">
+            <div class="recommended-products-wrapper">
+              <div class="featured-products">
+                <div class="featured-products__header">
+                  <h2 class="featured-products__title" style="font-size: 14px;">SİPARİŞİNİZİ TAMAMLAMADAN ÖNCE...</h2>
+                </div>
+
+                <div class="swiper-go-cart seg-swiper">
+                  <div class="swiper-wrapper">
+                    {% for product in recommended_products %}
+                      {% if product.available %}
+                        <div class="swiper-slide">
+                          <div class="product-card">
+                            <div class="product-card__image">
+                              <img
+                                src="{{ product.featured_image | image_url: width: '352' }}"
+                                alt="{{ product.alt }}"
+                                srcset="
+                                  {{ product.featured_image | image_url: width: '352' }} 352w,
+                                  {{ product.featured_image | image_url: width: '832' }} 832w,
+                                  {{ product.featured_image | image_url: width: '1200' }} 1200w
+                                "
+                                width="352"
+                                height="auto"
+                                class="product-card__image product-card__image--first"
+                                loading="lazy"
+                              >
+                            </div>
+                            <div class="product-card__detail">
+                              <div>
+                                <div class="product-card__title-wrapper">
+                                  <a
+                                    href="{{ product.url }}"
+                                    class="product-card__title"
+                                  >
+                                    {{- product.title -}}
+                                  </a>
+                                  <div class="product-card__variants"></div>
+                                </div>
+
+                                <div class="product-card__price-wrapper">
+                                  <span>
+                                    <span class="product-card__price compare-at__price">{{ product.compare_at_price | money_without_currency }}₺</span>
+                                    <span class="product-card__price">{{ product.price | money_without_currency }}₺</span>
+                                  </span>
+                                </div>
+                              </div>
+                              <div>
+                                <div class="product-card__small-tags">
+                                  <span></span>
+                                </div>
+                                <div class="product-card__tags"></div>
+                              </div>
+                              <div
+                                class="product-card__sizes sgf_sizes"
+                                style="display:none"
+                                data-pid="{{ product.id }}"
+                              >
+                                <div class="sgf_close" data-pid="{{ product.id }}">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                    <path d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z"></path>
+                                  </svg>
+                                </div>
+                                <div
+                                  class="product-card__size-list  "
+                                  style="flex-direction: column;"
+                                  data-pid="{{ product.id }}"
+                                >
+                                  {% for variant in product.variants %}
+                                    <button
+                                      type="submit"
+                                      name="add"
+                                      class="product-card__size js-go-cart-add-to-cart-quick"
+                                      data-variantid="{{ variant.id }}"
+                                      data-productprice="{{ variant.price }}"
+                                    >
+                                      {{ variant.title }}
+                                    </button>
+                                  {% endfor %}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div onclick="event.preventDefault()" class="sgf_addtocart " data-pid="{{ product.id }}">
+                            <button>Sepete Ekle</button>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="swiper-button-prev">
+                    <span aria-label="Prev">←</span>
+                  </div>
+                  <div class="swiper-button-next">
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              // Event delegation for '.sgf_addtocart' click event
+              document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('sgf_addtocart') || e.target.closest('.sgf_addtocart')) {
+                  var that = e.target.classList.contains('sgf_addtocart') ? e.target : e.target.closest('.sgf_addtocart');
+                  var pid = that.getAttribute('data-pid');
+                  var productCardSizes = document.querySelectorAll('.product-card__sizes');
+                  productCardSizes.forEach(function (elem) {
+                    elem.style.display = 'none';
+                  });
+
+                  if (that.classList.contains('sgf_addtocartsingle')) {
+                    var singleSizeButton = document.querySelector('.scn_b4d85bb93e000 .product-card__size-list--single[data-pid="' + pid + '"] button');
+                    if (singleSizeButton) {
+                      singleSizeButton.click();
+                    }
+                  } else {
+                    var productCardSize = document.querySelector('.product-card__sizes[data-pid="' + pid + '"]');
+                    if (productCardSize) {
+                      productCardSize.style.display = 'block';
+                    }
+                  }
+                }
+              });
+
+              // Event delegation for '.sgf_close' click event
+              document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('sgf_close') || e.target.closest('.sgf_close')) {
+                  var that = e.target.classList.contains('sgf_close') ? e.target : e.target.closest('.sgf_close');
+                  var pid = that.getAttribute('data-pid');
+                  var productCardSize = document.querySelector('.product-card__sizes[data-pid="' + pid + '"]');
+                  if (productCardSize) {
+                    productCardSize.style.display = 'none';
+                  }
+                }
+              });
+
+              // Event delegation for '.product-card__size-list button' click event
+              document.addEventListener('click', function (e) {
+                if (e.target.closest('.product-card__size-list button')) {
+                  var productCardSizes = document.querySelectorAll('.product-card__sizes');
+                  productCardSizes.forEach(function (elem) {
+                    elem.style.display = 'none';
+                  });
+                }
+              });
+            });
+          </script>
+
+          <style>
+            .scn_b4d85bb93e000 .badge {
+              font-size: 0.810rem !important;
+            }
+
+            .scn_b4d85bb93e000 .product-card__detail {
+              margin-bottom: 3rem;
+            }
+
+            .sgf_sizes {
+              transform: translateY(0) !important;
+              bottom: 0px !important;
+            }
+
+            .sgf_close {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              font-size: 12px;
+              cursor: pointer;
+            }
+
+            .sgf_close svg {
+              height: 12px;
+            }
+
+            .sgf_addtocart {
+              display: inline-block;
+              border-radius: 1.5rem;
+              border: 1px solid rgb(4 4 4 / 1);
+              background-color: white;
+              padding: 4px 32px;
+              text-align: center;
+              font-size: .875rem;
+              line-height: 1.25rem;
+              --tw-text-opacity: 1;
+              color: rgb(4 4 4 / 1);
+              width: 100%;
+              cursor: pointer;
+            }
+
+            @media only screen and (max-width: 767px) {
+              .sgf_addtocart {
+                padding: 4px 10px;
+              }
+              .byg .featured-products__title {
+                font-size: 12px;
+              }
+            }
+
+            .sgf_addtocart button {
+              border: none;
+              background: transparent;
+              outline: none;
+              box-shadow: none;
+            }
+
+            .sgf_addtocart:hover {
+              background-color: rgb(4 4 4 / 1);
+              color: white;
+            }
+
+            .scn_b4d85bb93e000 .product-card__title {
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+            }
+
+            .scn_b4d85bb93e000 .featured-products .swiper-slide {
+              padding-right: 0 !important;
+            }
+
+            .scn_b4d85bb93e000 .recommended-products-wrapper {
+              width: 100%
+            }
+
+            .scn_b4d85bb93e000 .featured-products__header {
+              padding-left: 0;
+            }
+
+            .scn_b4d85bb93e000 .swiper-button-next,
+            .scn_b4d85bb93e000 .swiper-button-prev {
+              background-image: none;
+              background-size: 0;
+              background-repeat: no-repeat;
+              background-position: 0;
+              margin-top: -5.5rem;
+            }
+
+            .scn_b4d85bb93e000 .swiper-button-next {
+              position: absolute;
+              border: 1px solid #d3d3d3;
+              display: inline-block;
+              border-radius: 5px;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              background-color: #fff;
+            }
+
+            .scn_b4d85bb93e000 .swiper-button-next span {
+              position: relative;
+              top: -2px;
+              box-sizing: border-box;
+              font-family: monospace;
+              text-decoration: none;
+              list-style-type: none;
+              -webkit-tap-highlight-color: transparent;
+            }
+
+            .scn_b4d85bb93e000 .swiper-button-prev {
+              position: absolute;
+              border: 1px solid #d3d3d3;
+              display: inline-block;
+              border-radius: 5px;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              background-color: #fff;
+            }
+
+            .scn_b4d85bb93e000 .swiper-button-prev span {
+              position: relative;
+              top: -2px;
+              box-sizing: border-box;
+              font-family: monospace;
+              text-decoration: none;
+              list-style-type: none;
+              -webkit-tap-highlight-color: transparent;
+            }
+
+
+            @media (min-width:320px) {
+
+              .scn_b4d85bb93e000 .swiper-button-next,
+              .scn_b4d85bb93e000 .swiper-button-prev {
+                width: 35px !important;
+                height: 35px !important;
+                font-size: 25px !important;
+              }
+            }
+
+            @media (max-width:767px) {
+              .scn_b4d85bb93e000 .badge {
+                font-size: 0.710rem !important;
+              }
+            }
+
+
+            @media (min-width:1025px) {
+
+              .scn_b4d85bb93e000 .swiper-button-next,
+              .scn_b4d85bb93e000 .swiper-button-prev {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 25px !important;
+              }
+            }
+          </style>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="go-cart-drawer__footer js-go-cart-drawer-footer">
+      <!-- go cart drawer basket Total -->
+      <div class="go-cart-drawer__subtotal go-cart-drawer__basket_total">
+        <span> Basket Total: </span>
+        <span class="go-cart-drawer__basket-total-price js-go-cart-drawer-basket_total"></span>
+      </div>
+
+      <!-- go cart drawer discount -->
+      <div class="go-cart-drawer__subtotal go-cart-drawer__discount">
+        <span>İndirim:</span>
+        <span class="go-cart-drawer__subtotal-price js-go-cart-drawer-discount"></span>
+      </div>
+
+      <!-- go cart drawer subtotal -->
+      <div class="go-cart-drawer__subtotal is-invisible">
+        <span>Toplam:</span>
+        <span class="go-cart-drawer__total-price js-go-cart-drawer-subtotal"></span>
+      </div>
+
+      <!-- go cart drawer buttons -->
+
+      <form action="/checkout" method="post" class="w-full cart__submit__form">
+        <button type="submit" class="button go-basket button--green w-full">SATIN AL</button>
+        <a
+          role="button"
+          class="button text-xs modal-btn button--green_light w-full mb-16 block !hidden"
+          data-modal=".modal--giftBoxAndNote"
+          >Alışverişe Devam</a
+        >
+        <button
+          type="button"
+          class="button js-go-cart-drawer-close"
+        >
+          Alışverişe Devam Et
+        </button>
+        <input type="hidden" id="gift-note-input" name="note" value="">
+      </form>
+
+      <img
+        src="{{ 'logo_brand.svg' | asset_url }}"
+        loading="lazy"
+        alt="Payment Brands"
+        width="auto"
+        height="auto"
+        class="brand-logo"
+      >
+    </div>
+    <!-- end go cart drawer buttons -->
+  </div>
+</div>
+<!-- end go cart drawer -->
+
+<!-- go cart overlay -->
+<div class="go-cart__overlay js-go-cart-overlay"></div>
+<!-- end go cart overlay -->
+
+<script>
+  window.translations = {
+    labelCartIsEmpty: "Sepetinizde ürün bulunmamaktadır.",
+    labelAddedToCart: "sepete eklendi."
+  }
+</script>
+
+<script>
+  document.addEventListener(
+    "DOMContentLoaded",
+    function(e) {
+      var goCart = new GoCart({
+        cartMode: 'drawer',
+        drawerDirection: 'right',
+        displayModal: false,
+        moneyFormat: '${{amount}}',
+      });
+
+      {% if recommended_products != blank %}
+        var swiper = new Swiper('.swiper-go-cart', {
+          slidesPerView: 2,
+          spaceBetween: 10,
+          loop: false,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      {% endif %}
+    }
+  )
+</script>
+
+<script>
+  window.rs_minicart = {
+      tiers: [],
+      lang: {
+          border_css_when_product_matches: "2px solid #00AF66",
+          border_css_when_product_does_not_match: "2px solid #000",
+          when_no_tier_is_applied: "Aşağıdaki fırsatlardan faydalanmak için sepetinize ürün eklemeyi unutmayın!",
+          when_all_tiers_are_applied: "🎉 Tüm hediyeleri kazandınız!"
+      }
+  }
+</script>
+
+<script>
+  function addTier(tierName, products) {
+      var existingTierIndex = window.rs_minicart.tiers.findIndex(control => control.tier === tierName.trim());
+
+      if (existingTierIndex === -1) {
+          window.rs_minicart.tiers.push({
+              tier: tierName.trim(),
+              products: [],
+              type: "text"
+          });
+
+          existingTierIndex = window.rs_minicart.tiers.length - 1;
+      }
+
+      products.forEach(product => {
+          window.rs_minicart.tiers[existingTierIndex].products.push(product);
+      });
+  }
+
+  // Define the products for each tier
+  var productsTier1 = [
+      {
+          title: "Ücretsiz Kargo",
+          min_price: Number(1000 * 100),
+          quantity: 0,
+          variantID: 0
+      }
+  ];
+
+  var productsTier2 = [
+      {
+          title: "%10 Ekstra indirim",
+          min_price: Number({{ settings.free_shipping_threshold }} * 100),
+          quantity: 0,
+          variantID: 0
+      }
+  ];
+
+  // Add tiers with products
+  addTier("tier-1", productsTier1);
+  addTier("tier-2", productsTier2);
+</script>

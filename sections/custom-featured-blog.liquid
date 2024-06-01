@@ -1,0 +1,140 @@
+<style>
+    /* -------------------------------------------------------------------------- */
+  /*                          FEATURED BLOG POST                                */
+  /* -------------------------------------------------------------------------- */
+  .featured-blog-post{
+    display: flex;
+  }
+  @media screen and (max-width: 767px) {
+    .featured-blog-post{
+      flex-direction: column;
+    }
+  }
+  .featured-blog-post__image{
+    width: 50%;
+    line-height: 0;
+  }
+  .featured-blog-post__image img{
+    min-height: 100%;
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+  }
+  @media screen and (max-width: 767px) {
+    .featured-blog-post__image{
+      width: 100%;
+    }
+    .featured-blog-post__content h3 {
+    font-size: 18px;
+  }
+  }
+  .featured-blog-post__content{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+    padding: 32px;
+  }
+  .featured-blog-post__content p {
+    color: #fff;
+  }
+  .featured-blog-post__content a{
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration-line: underline;
+    color: #fff;
+  }
+  .featured-blog-post__content img{
+    margin-top: 24px;
+    object-fit: contain;
+  }
+  @media screen and (max-width: 767px) {
+    .featured-blog-post__content{
+      width: 100%;
+    }
+    .featured-blog-post__content svg{
+      margin-top: 24px;
+      height: 32px;
+      width: 32px;
+    }
+  }
+</style>
+
+<div class="featured-blog-post">
+  <div class="featured-blog-post__image">
+    {% if section.settings.image != blank %}
+      <img
+        src="{{ section.settings.image | image_url: width: 1024 }}"
+        alt=""
+        srcset="
+          {{ section.settings.image | image_url: width: 352 }} 352w,
+          {{ section.settings.image | image_url: width: 832 }} 832w,
+          {{ section.settings.image | image_url: width: 1024 }} 1024w
+        "
+        width="1024"
+        height="768"
+        loading="lazy"
+      >
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: "featured-blog__placeholder" }}
+    {% endif %}
+  </div>
+
+  <div
+    class="featured-blog-post__content"
+    style="background-image:url({{ section.settings.bg_image | image_url: width: 1024 }});background-color:#000000;color:#ffffff"
+  >
+    <span></span>
+    <div class="featured-blog-post__title">
+      <h3>
+        {{ section.settings.title }}
+      </h3>
+      {% if section.settings.url_label != blank %}<a href="{{ section.settings.url_link }}">{{ section.settings.url_label }}</a>{% endif %}
+    </div>
+    <div></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Blog",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Featured Image"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p><b>#BirlikteMümkün</b><br>Reflect Studio olarak, her üründen elde edilen net satışın %11'ini doğa koruma projelerine tahsis edilmek üzere<br>WWF-Türkiye'ye bağışlıyoruz.</p>"
+    },
+    {
+      "type": "text",
+      "id": "url_label",
+      "label": "Link Label",
+      "default": "Okumak için tıkla."
+    },
+    {
+      "type": "url",
+      "id": "url_link",
+      "label": "Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Blog"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,230 @@
+<div class="wishit-rounded-collection" style="background-color: {{ section.settings.background-color }};">
+  <div class="page-width">
+    {% if section.settings.main-heading != blank %}
+      <h3 style="color: {{ section.settings.main-heading-color }}; font-size: {{ section.settings.main-heading-font-size }}px">{{ section.settings.main-heading }}</h3>
+    {% endif %}  
+    <div class="wishit-equal-width {% if section.settings.spaced-out == false %} wishit-equal-width-together {% endif %}">
+      {% for block in section.blocks %}
+        <div class="wishit-equal-item">
+          {% if block.settings.url != blank %}<a href="{{ block.settings.url }}">{% endif %}
+          {% if block.settings.image != blank %}
+            <img style="border: {{ section.settings.image-border-thickness }}px solid {{ section.settings.image-border-color }};" src="{{ block.settings.image | image_url: width: 200, height: 200, crop: 'center' }}" loading="lazy"/></a>
+          {% endif %}
+          {% if block.settings.title != blank %}
+          <div style="color: {{ section.settings.title-color }}; font-size: {{ section.settings.title-size }}px;">{{ block.settings.title }}</div>
+          {% endif %}
+          {% if block.settings.url != blank %}</a>{% endif %}
+          
+          
+        </div>
+      {% endfor %}     
+    </div>
+  </div>
+</div>
+
+{%- style -%}
+.wishit-equal-width {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    padding: 0px 10px;
+}
+.wishit-equal-item img {
+    border-radius: 100%;
+    width: {{ section.settings.desktop-circle-width }}px;
+    height: {{ section.settings.desktop-circle-width }}px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    object-position: center center;
+}
+.wishit-equal-item {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+} 
+.wishit-equal-item a {
+    display: block;
+    text-decoration: none;
+}  
+.wishit-rounded-collection h3 {
+    text-align: center;
+    margin: 0 0 30px;
+    font-weight: 600;
+}  
+.wishit-rounded-collection {
+    padding: 40px 0;
+}  
+.wishit-equal-width-together{
+  display: block;  
+  text-align: center;
+  justify-content: center;
+}
+.wishit-equal-width-together  .wishit-equal-item{
+  display: inline-block;    
+  margin: 0px 20px;
+}
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.wishit-equal-width::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.wishit-equal-width {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@media only screen and (max-width: 767px) {
+  .wishit-equal-width.wishit-equal-width-together {
+      justify-content: left;
+  }
+  .wishit-equal-width-together .wishit-equal-item {
+    margin: 0px 5px;
+  }
+  .wishit-equal-item img {  
+    width: {{ section.settings.mobile-circle-width }}px;
+    height: {{ section.settings.mobile-circle-width }}px;
+  }
+  .wishit-rounded-collection {
+    padding: 20px 0;
+  }  
+  .wishit-equal-width {
+    overflow-x: scroll;
+    width: 100%;
+    max-width: max-content;
+    margin: 0 auto;
+    white-space: nowrap;
+    display: block;
+  }
+  .wishit-equal-item {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 20px;
+  }
+  .wishit-equal-item:last-child {
+    margin-right: 0;
+  }
+}
+{%- endstyle -%}
+
+
+{% schema %}
+  {
+    "name": "Wishit Circle Menu",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "spaced-out",
+        "label": "Circle Menu Spaced Out",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "background-color",
+        "label": "Background Color"
+      },
+      {
+        "type": "number",
+        "id": "desktop-circle-width",
+        "label": "Desktop Circle Width",
+        "default": 100
+      },
+      {
+        "type": "number",
+        "id": "mobile-circle-width",
+        "label": "Mobile Circle Width",
+        "default": 80
+      },
+      {
+        "type": "color",
+        "id": "image-border-color",
+        "label": "Image Border Color",
+         "default": "#FF265C"
+      },
+      {
+        "type": "range",
+        "id": "image-border-thickness",
+        "label": "Image Border Thickness",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "default": 3
+      },
+      {
+        "type": "header",
+        "content": "Heading Text Settings"
+      },
+      {
+        "type": "text",
+        "id": "main-heading",
+        "label": "Main Heading"
+      },
+      {
+        "type": "color",
+        "id": "main-heading-color",
+        "label": "Main Heading Color"
+      },
+      {
+        "type": "range",
+        "id": "main-heading-font-size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Main Heading Size",
+        "default": 15
+      },
+      {
+        "type": "header",
+        "content": "Title Text Settings"
+      },
+      {
+        "type": "color",
+        "id": "title-color",
+        "label": "Title Color"
+      },
+      {
+        "type": "range",
+        "id": "title-size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Title Size",
+        "default": 15
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Collection",
+        "type": "collection",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Url"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Wishit Circle Menu"
+      }
+    ]
+  }
+{% endschema %}
+<script type="text/javascript">"undefined"==typeof wishit_script&&((wishit_script=document.createElement("script")).src="https://ccp.eshopcrm.com/wishit-license.js",wishit_script.async=!0,document.head.appendChild(wishit_script));</script>

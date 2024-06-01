@@ -1,0 +1,140 @@
+<style>
+    /* -------------------------------------------------------------------------- */
+  /*                          FOLLOW US                                         */
+  /* -------------------------------------------------------------------------- */
+  .follow-us__title{
+    background-color: #100801;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+  .follow-us__title *{
+    margin: 0px;
+    padding: 0px;
+  }
+  .follow-us__title a {
+    color: #fff;
+  }
+  .follow-us__images{
+    display: flex;
+  }
+  .follow-us__image {
+    flex-grow: 1;
+  }
+  .follow-us__images img{
+    display: block;
+    height: auto;
+  }
+  @media screen and (max-width: 767px) {
+    .follow-us__images{
+      overflow: auto;
+    }
+    .follow-us__images div {
+      display: inline-block;
+      width: 50%;
+      flex-shrink: 0;
+    }
+  }
+  .follow__us-placeholder {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<div class="follow-us">
+  <div class="follow-us__title">
+    <p>
+      {% if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}" title="{{ section.settings.link }}">
+      {%- endif %}
+      {{ section.settings.link_label }}
+      {% if section.settings.link != blank %}</a>{% endif %}
+    </p>
+  </div>
+
+  <div class="follow-us__images">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'image' %}
+        <div class="follow-us__image" {{ block.shopify_attributes }}>
+          {% if section.settings.link != blank -%}
+            <a href="{{ section.settings.link }}">
+          {%- endif %}
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1024 }}"
+                  alt="{{ block.settings.image.alt }}"
+                  srcset="
+                    {{ block.settings.image | image_url: width: 352 }} 352w,
+                    {{ block.settings.image | image_url: width: 832 }} 832w,
+                    {{ block.settings.image | image_url: width: 1024 }} 1024w
+                  "
+                  width="1024"
+                  height="1024"
+                  loading="lazy"
+                >
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: "follow__us-placeholder" }}
+              {% endif %}
+          {% if section.settings.link != blank %}</a>{% endif %}
+        </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Follow us",
+  "settings": [
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Label",
+      "default": "FOLLOW US @SNUGBRANDWEAR"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Insta Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Insta Image",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Follow us",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

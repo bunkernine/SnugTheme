@@ -1,0 +1,7 @@
+<script type="text/javascript" src="https://sdk.qikify.com/boosterkit/app-v1.js" defer="defer"></script>
+{% render 'qikify-boosterkit-offer' %}
+{% render 'qikify-boosterkit-data' %}
+<script id="qikify-boosterkit-custom-script">/* Henry - 04Apr2023 */
+document.addEventListener('boosterkit-service-ready', () => {
+  document.querySelector('.cart__submit.qbk-event-added').removeAttribute('disabled');
+});</script>
