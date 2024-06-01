@@ -1775,23 +1775,6 @@ dl.price.price--listing {
   }
 }
 
-
-
-
-.new-image-container::after {
-  content: "";
-  background: url(https://snugbrandwear.com/cdn/shop/files/favicon-32x32_32x32.png?v=1650280207) center center no-repeat;
-  width: 90px;
-  position: absolute;
-  top: 0;
-  left: 15%;
-  border-left: 1px solid black;
-  height: 100%;
-  border-right: 1px solid black;
-
-
-}
-
 .product-template__container .product-single__media {
   padding-top: 150% !important;
 }

@@ -27,6 +27,7 @@
 
 .site-header__logo {
   position: relative;
+  margin: 0;
 }
 
 .logo-align--center .site-header__logo {
@@ -831,4 +832,18 @@
   .site-header .site-header__icons {
     width: 10%;
   }
+}
+
+.new-image-container::after {
+  content: "";
+  background: url(https://snugbrandwear.com/cdn/shop/files/favicon-32x32_32x32.png?v=1650280207) center center no-repeat;
+  width: 90px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left: 1px solid black;
+  height: 100%;
+  border-right: 1px solid black;
+
+
 }
