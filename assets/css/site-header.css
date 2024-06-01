@@ -19,9 +19,6 @@
 }
 
 @media only screen and (min-width: 750px) {
-  .site-header {
-    padding: 0 55px;
-  }
 
   .site-header.logo--center {
     padding-top: 30px;
@@ -440,9 +437,6 @@
 }
 
 @media only screen and (min-width:750px) {
-  .site-header {
-    padding: 0 55px
-  }
 
   .site-header.logo--center {
     padding-top: 30px
@@ -820,10 +814,6 @@
 }
 
 @media only screen and (min-width: 750px) {
-
-  .site-header {
-    padding: 0 0 !important;
-  }
 
   .template-index .site-header {
     background: none;
