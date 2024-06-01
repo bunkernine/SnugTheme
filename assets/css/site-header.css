@@ -860,3 +860,12 @@
     width: 7%;
   }
 }
+
+@media screen and (min-width: 1201px) and (max-width: 1230px) {
+  .header .site-header__mobile-nav {
+    width: 22.5%;
+  }
+  .header .site-header__icons {
+    width: 8.5%;
+  }
+}
