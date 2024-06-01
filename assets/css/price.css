@@ -1,0 +1,177 @@
+.price {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ margin-top: 0;
+ margin-bottom: 0;
+}
+
+@media only screen and (max-width: 749px) {
+ .price {
+  font-size: calc(((var(--font-size-base) - 1) / (var(--font-size-base))) * 1em);
+ }
+}
+
+.price dl {
+ margin-top: 0;
+}
+
+.price dd {
+ margin: 0 0.5em 0 0;
+}
+
+.price--unavailable {
+ visibility: hidden;
+}
+
+.price--compare-price-hidden .price__compare {
+ display: none;
+}
+
+.price__pricing-group {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+}
+
+.price__regular {
+ display: block;
+}
+
+.price__regular,
+.price__sale {
+ margin-right: 0.625rem;
+}
+
+.price--on-sale .price__regular,
+.price--on-sale .price__availability {
+ display: none;
+}
+
+.price__availability {
+ display: none;
+ color: var(--color-body-text);
+ font-size: 0.9em;
+ font-weight: var(--font-weight-body);
+ text-transform: uppercase;
+ letter-spacing: 1px;
+}
+
+.price--sold-out .price__availability {
+ display: block;
+}
+
+.price__sale {
+ display: none;
+}
+
+.price--on-sale .price__sale {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+
+.price__vendor {
+ color: var(--color-body-text);
+ font-size: 0.9em;
+ font-weight: var(--font-weight-body);
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ margin: 5px 0 10px;
+ width: 100%;
+ -ms-flex-preferred-size: 100%;
+ -webkit-flex-basis: 100%;
+ -moz-flex-basis: 100%;
+ flex-basis: 100%;
+}
+
+.price__vendor--listing {
+ margin: 0 0 4px;
+}
+
+.price__unit {
+ -ms-flex-preferred-size: 100%;
+ -webkit-flex-basis: 100%;
+ -moz-flex-basis: 100%;
+ flex-basis: 100%;
+ display: none;
+}
+
+.price--unit-available .price__unit {
+ display: block;
+}
+
+.price-item {
+ color: var(--color-body-text);
+ font-weight: var(--font-weight-body--bolder);
+}
+
+.price-item--sale {
+ color: var(--color-sale-text);
+}
+
+.price--on-sale .price-item--regular {
+ text-decoration: line-through;
+}
+
+.price-unit-price {
+ color: var(--color-body-text);
+ font-size: 0.8em;
+}
+
+.price-item__label {
+ display: inline-block;
+ white-space: nowrap;
+ font-weight: var(--font-weight-body--bolder);
+}
+
+.price__badges {
+ margin-top: 0;
+}
+
+.price__badge {
+ display: none;
+ align-self: center;
+ text-align: center;
+ font-size: 0.5em;
+ line-height: 1em;
+ font-weight: bold;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ background-color: var(--color-bg);
+ border: 1px solid var(--color-text);
+ border-radius: 2px;
+ padding: 0.2rem 0.5rem;
+}
+
+.price__badge--sale {
+ color: var(--color-bg);
+ border-color: var(--color-sale-text);
+ background-color: var(--color-sale-text);
+}
+
+.price--on-sale .price__badge--sale {
+ display: flex;
+}
+
+.price--sold-out .price__badge--sale {
+ display: none;
+}
+
+.price__badge--sold-out {
+ color: var(--color-body-text);
+ border-color: var(--color-body-text);
+}
+
+.price--sold-out .price__badge--sold-out {
+ display: flex;
+}
+
+.price__badges--listing {
+ margin-top: 0.5rem;
+}
+
+.price__badges--listing .price__badge {
+ font-size: 0.6em;
+ padding: 0.25rem 0.55rem;
+}

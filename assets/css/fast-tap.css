@@ -1,0 +1,14 @@
+/*============================================================================
+  Fast Tap
+  enables no-delay taps (FastClick-esque) on supporting browsers
+==============================================================================*/
+a,
+button,
+[role="button"],
+input,
+label,
+select,
+.disclosure__toggle,
+textarea {
+  touch-action: manipulation;
+}

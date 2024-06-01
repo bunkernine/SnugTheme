@@ -1,0 +1,125 @@
+/*================ Template | Collections ================*/
+.collection-hero {
+ position: relative;
+ overflow: hidden;
+ margin-top: -55px;
+ margin-bottom: 22px;
+}
+
+@media only screen and (min-width: 750px) {
+ .collection-hero {
+   margin-bottom: 35px;
+ }
+}
+
+.collection-description {
+ margin-bottom: 22px;
+ margin-top: 22px;
+}
+
+@media only screen and (min-width: 750px) {
+ .collection-description {
+   margin-bottom: 35px;
+   margin-top: 35px;
+ }
+}
+
+.collection-hero__image {
+ background-position: 50% 50%;
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 300px;
+ opacity: 1;
+}
+
+@media only screen and (max-width: 749px) {
+ .collection-hero__image {
+   height: 180px;
+ }
+}
+
+.collection-hero__title-wrapper::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ background-color: var(--color-image-overlay);
+ opacity: var(--opacity-image-overlay);
+}
+
+.collection-hero__title {
+ position: absolute;
+ color: var(--color-overlay-title-text);
+ width: 100%;
+ text-align: center;
+ left: 0;
+ right: 0;
+ top: 50%;
+ -ms-transform: translateY(-50%);
+ -webkit-transform: translateY(-50%);
+ transform: translateY(-50%);
+}
+
+@media only screen and (min-width: 750px) {
+ .collection-hero__title {
+   font-size: calc(((var(--font-size-header) + 6) / (var(--font-size-base))) * 1em);
+ }
+}
+
+.template-blog .social-sharing {
+ margin-bottom: 17.5px;
+}
+
+.blog-list-view .pagination {
+ padding-top: 0;
+}
+
+.blog-filter {
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ width: 100%;
+ -ms-flex-align: center;
+ -webkit-align-items: center;
+ -moz-align-items: center;
+ -ms-align-items: center;
+ -o-align-items: center;
+ align-items: center;
+ -webkit-justify-content: center;
+ -ms-justify-content: center;
+ justify-content: center;
+}
+
+.blog-filter .icon-chevron-down {
+ fill: var(--color-text-field-text);
+ width: calc(10em / 16);
+ height: calc(10em / 16);
+ right: 0.7rem;
+}
+
+.blog-filter__label {
+ margin: 0 1rem 0 0;
+}
+
+.cart-header {
+ margin-bottom: 0.7rem;
+ text-align: center;
+}
+
+@media only screen and (min-width: 750px) {
+ .cart-header {
+   margin-bottom: 1.7rem;
+ }
+}
+
+.cart-header__title {
+ margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 750px) {
+ .cart-header__title {
+   margin-bottom: 1rem;
+ }
+}
