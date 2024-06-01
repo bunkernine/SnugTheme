@@ -71,6 +71,16 @@
 /*================ GLOBAL ================*/
 
 
+@media screen and (min-width: 1200px) {
+  .page-width {
+    max-width: 1200px;
+  }
+
+  .page-width--padding {
+    padding: 0 2.5rem;
+  }
+}
+
 @media screen and (min-width: 1367px) {
   .page-width {
     max-width: 1600px;
