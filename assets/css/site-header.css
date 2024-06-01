@@ -845,3 +845,18 @@
   height: 100%;
   border-right: 1px solid black;
 }
+
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+  .site-nav__link {
+    font-size: 0.75rem;
+  }
+  .site-header__logo img {
+    max-width: 100px;
+  }
+  .header .site-header__mobile-nav {
+    width: 20%;
+  }
+  .header .site-header__icons {
+    width: 7%;
+  }
+}
