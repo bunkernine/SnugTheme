@@ -1,17 +1,22 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>
+
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_button }}">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TD6XJ98');</script>
-<!-- End Google Tag Manager -->
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TD6XJ98');</script>
+  <!-- End Google Tag Manager -->
 
   {%- assign header_font = settings.type_header_font -%}
   {%- assign base_font = settings.type_base_font -%}
@@ -27,10 +32,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
 
-
-
   {%- if settings.favicon != blank -%}
-    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
 
   {%- capture seo_title -%}
@@ -39,21 +42,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {%- else -%}
       {{ page_title }}
     {%- endif -%}
+
     {%- if current_tags -%}
       {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
     {%- endif -%}
+
     {%- if current_page != 1 -%}
-      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      ndash; {{ 'general.meta.page' | t: page: current_page }}
     {%- endif -%}
+
     {%- assign escaped_page_title = page_title | escape -%}
     {%- unless escaped_page_title contains shop.name -%}
       &ndash; {{ shop.name }}
     {%- endunless -%}
   {%- endcapture -%}
-  {%- comment smartseo_integration_begin_meta_data -%}<title>{{ seo_title | strip }}</title>{%- endcomment smartseo_integration_end_meta_data -%}
+
+  {%- comment -%} smartseo_integration_begin_meta_data {%- endcomment -%}
+  <title>{{ seo_title | strip }}</title>
 
   {%- if page_description -%}
-    {%- comment smartseo_integration_begin_meta_data -%}<meta name="description" content="{{ page_description | escape }}">{%- endcomment smartseo_integration_end_meta_data -%}
+    {%- comment -%} smartseo_integration_begin_meta_data {%- endcomment -%}
+    <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
   {% include 'social-meta-tags' %}
@@ -95,80 +104,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       },
       strings: {
         addToCart: {{ 'products.product.add_to_cart' | t | json }},
-        soldOut: {{ 'products.product.sold_out' | t | json }},
-        unavailable: {{ 'products.product.unavailable' | t | json }},
-        regularPrice: {{ 'products.product.regular_price' | t | json }},
-        salePrice: {{ 'products.product.sale_price' | t | json }},
-        sale: {{ 'products.product.on_sale' | t | json }},
-        fromLowestPrice: {{ 'products.product.from_lowest_price_html' | t: lowest_price: '[price]' | json }},
-        vendor: {{'products.product.vendor' | t | json }},
-        showMore: {{ 'general.filters.show_more' | t | json }},
-        showLess: {{ 'general.filters.show_less' | t | json }},
-        searchFor: {{ 'general.search.search_for' | t | json }},
-        addressError: {{ 'sections.map.address_error' | t | json }},
-        addressNoResults: {{ 'sections.map.address_no_results' | t | json }},
-        addressQueryLimit: {{ 'sections.map.address_query_limit_html' | t | json }},
-        authError: {{ 'sections.map.auth_error_html' | t | json }},
-        newWindow: {{ 'general.accessibility.link_messages.new_window' | t | json }},
-        external: {{ 'general.accessibility.link_messages.external' | t | json }},
-        newWindowExternal: {{ 'general.accessibility.link_messages.new_window_and_external' | t | json }},
-        removeLabel: {{ 'cart.label.remove' | t: product: '[product]' | json }},
-        update: {{ 'cart.label.update' | t | json }},
-        quantity: {{ 'cart.label.quantity' | t | json }},
-        discountedTotal: {{ 'cart.label.discounted_total' | t | json }},
-        regularTotal: {{ 'cart.label.regular_total' | t | json }},
-        priceColumn: {{ 'cart.label.price_column' | t | json }},
-        quantityMinimumMessage: {{ 'products.product.quantity_minimum_message' | t | json }},
-        cartError: {{ 'cart.general.cart_error' | t | json }},
-        removedItemMessage: {{ 'cart.general.removed_item_html' | t: quantity: '[quantity]', link: '[link]' | json }},
-        unitPrice: {{ 'products.product.unit_price_label' | t | json }},
-        unitPriceSeparator: {{ 'general.accessibility.unit_price_separator' | t | json }},
-        oneCartCount: {{ 'cart.popup.cart_count' | t: count: 1 | json }},
-        otherCartCount: {{ 'cart.popup.cart_count' | t: count: '[count]' | json }},
-        quantityLabel: {{ 'cart.popup.quantity_label' | t: quantity_count: '[count]' | json }},
-        products: {{ 'general.search.products' | t | json }},
-        loading: {{ 'general.search.loading' | t | json }},
-        number_of_results: {{ 'general.search.number_of_results' | t: result_number: '[result_number]', results_count: '[results_count]' | json }},
-        number_of_results_found: {{ 'general.search.number_of_results_found' | t: results_count: '[results_count]' | json }},
-        one_result_found: {{ 'general.search.one_result_found' | t | json }}
+    soldOut: { { 'products.product.sold_out' | t | json } },
+    unavailable: { { 'products.product.unavailable' | t | json } },
+    regularPrice: { { 'products.product.regular_price' | t | json } },
+    salePrice: { { 'products.product.sale_price' | t | json } },
+    sale: { { 'products.product.on_sale' | t | json } },
+    fromLowestPrice: { { 'products.product.from_lowest_price_html' | t: lowest_price: '[price]' | json } },
+    vendor: { { 'products.product.vendor' | t | json } },
+    showMore: { { 'general.filters.show_more' | t | json } },
+    showLess: { { 'general.filters.show_less' | t | json } },
+    searchFor: { { 'general.search.search_for' | t | json } },
+    addressError: { { 'sections.map.address_error' | t | json } },
+    addressNoResults: { { 'sections.map.address_no_results' | t | json } },
+    addressQueryLimit: { { 'sections.map.address_query_limit_html' | t | json } },
+    authError: { { 'sections.map.auth_error_html' | t | json } },
+    newWindow: { { 'general.accessibility.link_messages.new_window' | t | json } },
+    external: { { 'general.accessibility.link_messages.external' | t | json } },
+    newWindowExternal: { { 'general.accessibility.link_messages.new_window_and_external' | t | json } },
+    removeLabel: { { 'cart.label.remove' | t: product: '[product]' | json } },
+    update: { { 'cart.label.update' | t | json } },
+    quantity: { { 'cart.label.quantity' | t | json } },
+    discountedTotal: { { 'cart.label.discounted_total' | t | json } },
+    regularTotal: { { 'cart.label.regular_total' | t | json } },
+    priceColumn: { { 'cart.label.price_column' | t | json } },
+    quantityMinimumMessage: { { 'products.product.quantity_minimum_message' | t | json } },
+    cartError: { { 'cart.general.cart_error' | t | json } },
+    removedItemMessage: { { 'cart.general.removed_item_html' | t: quantity: '[quantity]', link: '[link]' | json } },
+    unitPrice: { { 'products.product.unit_price_label' | t | json } },
+    unitPriceSeparator: { { 'general.accessibility.unit_price_separator' | t | json } },
+    oneCartCount: { { 'cart.popup.cart_count' | t: count: 1 | json } },
+    otherCartCount: { { 'cart.popup.cart_count' | t: count: '[count]' | json } },
+    quantityLabel: { { 'cart.popup.quantity_label' | t: quantity_count: '[count]' | json } },
+    products: { { 'general.search.products' | t | json } },
+    loading: { { 'general.search.loading' | t | json } },
+    number_of_results: { { 'general.search.number_of_results' | t: result_number: '[result_number]', results_count: '[results_count]' | json } },
+    number_of_results_found: { { 'general.search.number_of_results_found' | t: results_count: '[results_count]' | json } },
+    one_result_found: { { 'general.search.one_result_found' | t | json } }
       },
-      moneyFormat: {{ shop.money_format | json }},
-      moneyFormatWithCurrency: {{ shop.money_with_currency_format | json }},
-      settings: {
-        predictiveSearchEnabled: {{ settings.predictive_search_enabled | json }},
-        predictiveSearchShowPrice: {{ settings.predictive_search_show_price | json }},
-        predictiveSearchShowVendor: {{ settings.predictive_search_show_vendor | json }}
-      },
-      stylesheet: "{{ 'theme.css' | asset_url }}"
+    moneyFormat: { { shop.money_format | json } },
+    moneyFormatWithCurrency: { { shop.money_with_currency_format | json } },
+    settings: {
+      predictiveSearchEnabled: { { settings.predictive_search_enabled | json } },
+      predictiveSearchShowPrice: { { settings.predictive_search_show_price | json } },
+      predictiveSearchShowVendor: { { settings.predictive_search_show_vendor | json } }
+    },
+    stylesheet: "{{ 'theme.css' | asset_url }}"
     };
 
-    {%- if template == 'collection' -%}
-      {%- if current_tags -%}
-        {%- capture tag_handles -%}
-            {%- for tag in current_tags -%}
-              {{- tag | handle | append: '|' -}}
-            {%- endfor -%}
-        {%- endcapture -%}
-      {%- endif -%}
-      theme.backToCollection = {
-        collection: {
-          title: {{ collection.title | json }},
-          link: "{{ shop.url }}{{ collection.url }}{%- if current_tags -%}/{{- tag_handles | split: '|' | join: '+' -}}{%- endif -%}"
+    {% - if template == 'collection' -%}
+    {% - if current_tags -%}
+    {% - capture tag_handles -%}
+    {% - for tag in current_tags -%}
+    { { - tag | handle | append: '|' -} }
+    {% - endfor -%}
+    {% - endcapture -%}
+    {% - endif -%}
+    theme.backToCollection = {
+      collection: {
+        title: {{ collection.title | json }},
+    link: "{{ shop.url }}{{ collection.url }}{%- if current_tags -%}/{{- tag_handles | split: '|' | join: '+' -}}{%- endif -%}"
         }
       };
-      sessionStorage.setItem("backToCollection", JSON.stringify(theme.backToCollection.collection));
+    sessionStorage.setItem("backToCollection", JSON.stringify(theme.backToCollection.collection));
 
-    {%- elsif template != 'product' -%}
-      if (sessionStorage.getItem("backToCollection")) {
-        sessionStorage.removeItem("backToCollection")
-      }
-    {%- endif -%}
+    {% - elsif template != 'product' -%}
+    if (sessionStorage.getItem("backToCollection")) {
+      sessionStorage.removeItem("backToCollection")
+    }
+    {% - endif -%}
 
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
   </script>
 
   {%- if request.page_type contains 'customers/' -%}
-    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+  <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
   {%- endif -%}
 
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
@@ -187,41 +196,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
   {% if template.name == "index" %}
-    {% render 'manual_content_for_header' %}
+  {% render 'manual_content_for_header' %}
   {% else %}
-    {{ content_for_header }}
+  {{ content_for_header }}
   {% endif %}
- 
-{% include 'pagefly-header' %}
-   {% include 'judgeme_core' %}
-  
-  
-  
- <!-- Google Webmaster Tools Site Verification -->
-<meta name="google-site-verification" content="gKJ0V621HrHrYMpXyqCqHveBSZILCioghcqQmxzYKsw" />
- <!-- Google Webmaster Tools Site Verification -->
-<meta name="google-site-verification" content="IhVlN7cpd015sy6KA-ZypLQ4_SZglUZuwzK97FuH3h0" />
+
+  {% include 'pagefly-header' %}
+  {% include 'judgeme_core' %}
+
+
+
+  <!-- Google Webmaster Tools Site Verification -->
+  <meta name="google-site-verification" content="gKJ0V621HrHrYMpXyqCqHveBSZILCioghcqQmxzYKsw" />
+  <!-- Google Webmaster Tools Site Verification -->
+  <meta name="google-site-verification" content="IhVlN7cpd015sy6KA-ZypLQ4_SZglUZuwzK97FuH3h0" />
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-429089869"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-429089869"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'AW-429089869');
-</script>
-<script>
-  gtag('event', 'page_view', {
-    'send_to': 'AW-429089869',
-    'value': '{{ product.price | money_without_currency }}',
-    'items': [{
-      'id': 'shopify_US_{{product.id}}_{{ product.variants.first.id }}',
-      'google_business_vertical': 'retail'
-    }]
-  });
-</script>
+    gtag('config', 'AW-429089869');
+  </script>
+  <script>
+    gtag('event', 'page_view', {
+      'send_to': 'AW-429089869',
+      'value': '{{ product.price | money_without_currency }}',
+      'items': [{
+        'id': 'shopify_US_{{product.id}}_{{ product.variants.first.id }}',
+        'google_business_vertical': 'retail'
+      }]
+    });
+  </script>
 
-  <script type='text/javascript' >
+  <script type='text/javascript'>
     window.tegsoft_webchat_v3_options = {
       tegsoft_hostname: "premicall.tegsoftcloud.com", /** Your Tegsoft instance FQDN needs to be defined here */
       layout: {
@@ -261,27 +270,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       whatsapp_options: {
         enabled: true,
         whatsapp_number: "+908502550358",
-        tooltip:"whatsapp"
+        tooltip: "whatsapp"
       },
       facebook_options: {
         enabled: false,
         facebook_username: "SNUG-Brandwear-100063704942484",
-        tooltip:"facebook"
+        tooltip: "facebook"
       },
       instagram_options: {
         enabled: true,
         instagram_username: "snug_brandwear",
-        tooltip:"instagram"
+        tooltip: "instagram"
       },
       video_call_options: {
         enabled: false,
-        tooltip:"Video call",
+        tooltip: "Video call",
         DID: "3101515"
       },
       webchat_options: {
         /** All empty items are optional. */
         enabled: false,
-        tooltip:"webchat",
+        tooltip: "webchat",
         disableSkill: "false",
         disablePhone: "false",
         disableEmail: "false",
@@ -293,7 +302,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         LASTNAME: "",
         EMAIL: "",
         PHONE: "",
-        input_rows: { 
+        input_rows: {
           firstNameRowVisible: true, /** Add name input to the name */
           firstNameRowEditable: true, /** Allow/restrict edidting name */
           lastNameRowVisible: true, /** Add surname input to the form */
@@ -315,7 +324,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           phoneInputLabel: "",
           skillInputLabel: ""
         },
-        start_with: { 
+        start_with: {
           mobile_popupType: "", /** Options are: default and autoStart. autoStart allows auto popup on mobile.*/
           start_delay: "0", /** delay in seconds. Default: 5 seconds */
           start_popupType: "default" /** options are: registration, anonymous, default and autoStart. The default is registration */
@@ -325,25 +334,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   </script>
 
-  <script type="text/javascript" src="https://premicall.tegsoftcloud.com/Tobe/forms/TegsoftVue/tegsoft_webchat_v3.js" ></script>  {% render 'qikify-apps' %}
+  <script type="text/javascript"
+    src="https://premicall.tegsoftcloud.com/Tobe/forms/TegsoftVue/tegsoft_webchat_v3.js"></script> {% render
+  'qikify-apps' %}
   <meta name="google-site-verification" content="HxkD9vbmtJ3_Ci84MtFOGAvnPtIZN3Ux1U90Ltkr9IY" />
 
-  <meta name="p:domain_verify" content="419996fc2c1336d7a7d22703dbd52d66"/>
-  
-  
-  
+  <meta name="p:domain_verify" content="419996fc2c1336d7a7d22703dbd52d66" />
+
+
+
   {{ 'go-cart.css' | asset_url | stylesheet_tag }}
   {{ 'swiper.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'go-cart.js' | asset_url }}" defer></script>
   <script src="{{ 'swiper.js' | asset_url }}" defer></script>
-  
-  {% include 'pagefly-app-header' %}</head> 
+
+  {% include 'pagefly-app-header' %}
+</head>
 
 <body class="template-{{ request.page_type | handle }}" id="PageContainer">
+
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD6XJ98"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD6XJ98" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {%- if settings.enable_ajax -%}
@@ -354,15 +368,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-    <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
+  <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
 
-    {% section 'footer' %}
+  {% section 'footer' %}
 
-    <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
-      {{- 'sections.slideshow.navigation_instructions' | t -}}
-    </div>
+  <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
+    {{- 'sections.slideshow.navigation_instructions' | t -}}
+  </div>
 
   </div>
 
@@ -379,15 +393,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
   <script>
-  document.querySelectorAll('.grid-view-item__image_lazy').forEach(function(element, index) {
-      element.setAttribute("src",element.getAttribute("data-src"));
-  });
+    document.querySelectorAll('.grid-view-item__image_lazy').forEach(function (element, index) {
+      element.setAttribute("src", element.getAttribute("data-src"));
+    });
   </script>
-<!--sea-startt-cb308c75-4592-4ee9-97d9-6a35325d1d7c-->
-<!--DO-NOT-REMOVE-THIS-CONTENT-START-->
+  <!--sea-startt-cb308c75-4592-4ee9-97d9-6a35325d1d7c-->
+  <!--DO-NOT-REMOVE-THIS-CONTENT-START-->
 
-<!--DO-NOT-REMOVE-THIS-CONTENT-END-->
-<!--sea-endddd-cb308c75-4592-4ee9-97d9-6a35325d1d7c-->
+  <!--DO-NOT-REMOVE-THIS-CONTENT-END-->
+  <!--sea-endddd-cb308c75-4592-4ee9-97d9-6a35325d1d7c-->
 
 
 
@@ -397,4 +411,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
 </body>
+
 </html>
