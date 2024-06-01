@@ -452,9 +452,6 @@
   }
 
   /* Quarters */
-  .medium-up--one-quarter {
-    width: 50%;
-  }
 
   .medium-up--two-quarters {
     width: 50%;
@@ -1062,8 +1059,7 @@
  
  .grid--table>.grid__item {
   float: none;
-  display: table-cell;
-  vertical-align: middle
+  display: block;
  }
  
  .grid__item {
@@ -1089,10 +1085,6 @@
  
   .medium-up--push-one-third {
    width: 33.33%
-  }
- 
-  .medium-up--one-half {
-   width: 50%
   }
  
   .medium-up--push-one-third {

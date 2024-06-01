@@ -26,7 +26,7 @@
 }
 
 .site-header__logo {
-  margin: 15px 0;
+  position: relative;
 }
 
 .logo-align--center .site-header__logo {
@@ -443,10 +443,6 @@
   }
 }
 
-.site-header__logo {
-  margin: 15px 0
-}
-
 .logo-align--center .site-header__logo {
   text-align: center;
   margin: 0 auto
@@ -482,7 +478,9 @@
 }
 
 .site-header__logo-image {
-  display: block
+  display: block;
+  position: relative;
+  padding: 1.25rem 0;
 }
 
 @media only screen and (min-width:750px) {
@@ -822,5 +820,15 @@
 
   .template-index .site-header__mobile-nav {
     background: white;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .site-header .medium-up--one-quarter {
+    width: 20%;
+  }
+
+  .site-header .site-header__icons {
+    width: 10%;
   }
 }
