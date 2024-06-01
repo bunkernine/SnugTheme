@@ -825,10 +825,6 @@
 }
 
 @media screen and (min-width: 750px) {
-  .site-header .site-header__icons {
-    width: 10%;
-  }
-
   .site-header nav.medium-up--one-half {
     width: 75%;
   }
@@ -861,7 +857,7 @@
   }
 }
 
-@media screen and (min-width: 1201px) and (max-width: 1230px) {
+@media screen and (min-width: 1201px) and (max-width: 1240px) {
   .header .site-header__mobile-nav {
     width: 22.5%;
   }
