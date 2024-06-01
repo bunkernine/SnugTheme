@@ -75,6 +75,10 @@
   .page-width {
     max-width: 1600px;
   }
+
+  .page-width--padding {
+    padding: 0 2.5rem;
+  }
 }
 
 
@@ -90,47 +94,11 @@
 
 
 
-
-@media screen and (min-width: 1900px) {
-  /* .site-header {
-   height: 86px !important;
-  } */
-}
-  @media screen and (max-width: 375px) {
-  /* .site-header {
-    height: 46px !important;
-} */
-}
 
 @media only screen and (max-width: 768px) {
-  .site-header__menu {
-    display: block !important;
-  }
-
-  .site-header__icon {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 10px 11px;
-    margin: 0;
-  }
-
   .slideshow__image {
     top: 70px;
   }
-
-  /* .site-header
-{
-  height: 70px !important;
-} */
-
-  .site-header__icon {
-    display: inline-block !important;
-    vertical-align: middle;
-    padding: 10px 11px;
-    margin: 0;
-
-  }
-
 }
 
 @media only screen and (min-width: 750px) {
@@ -1410,12 +1378,6 @@ svg:not(:root) {
 
 /***************** ORGANICLICK  ***********************/
 
-@media only screen and (max-width: 375) {
-  .site-header {
-    height: 46px !important;
-  }
-}
-
 @media only screen and (max-width: 750px) {
   .new-image-container::after {
     left: 35% !important;
@@ -1424,12 +1386,6 @@ svg:not(:root) {
 
   .slideshow__slide {
     top: -6px !important;
-  }
-
-
-
-  .site-header {
-    height: 46px;
   }
 
   .grid--view-items {
@@ -1500,10 +1456,6 @@ svg:not(:root) {
     display: none;
   }
 
-  .site-header__logo {
-    margin: -15px 0;
-
-  }
 
   .main-content {
     padding-top: 120px;
@@ -1517,54 +1469,6 @@ svg:not(:root) {
     font-size: 12px;
   }
 
-  /***************** Slideshow cover entire top  ***********************/
-  header.site-header.border-bottom.logo--left {
-    background-color: white;
-  }
-
-  .grid.grid--no-gutters.grid--table.site-header__mobile-nav {
-    background-color: white;
-  }
-
-  div#shopify-section-header {
-    position: absolute;
-    z-index: 999;
-    width: 100%;
-  }
-
-  header.site-header.border-bottom.logo--left {
-    border-bottom-color: white;
-  }
-
-  /***************** header icon color  ***********************/
-
-  .icon-search {
-    &:hover {
-      color: red;
-    }
-  }
-
-  .icon-cart {
-    &:hover {
-      color: red;
-    }
-  }
-
-
-  .icon-hamburger {
-    &:hover {
-      color: red;
-    }
-  }
-
-
-  .icon-customer {
-    color: white;
-
-    &:hover {
-      color: red;
-    }
-  }
 
   /***************** Product name font mainpage  ***********************/
 
@@ -1761,20 +1665,6 @@ hr {
 @media only screen and (min-width: 750px) {
   .slideshow__image {
     top: 81px;
-  }
-
-  .site-header {
-    padding: 0 0 !important;
-  }
-
-  .template-index .site-header {
-    background: none;
-    position: relative;
-  }
-
-  .template-index .site-header__mobile-nav {
-    background: white;
-    /* border-bottom: 1px solid black; */
   }
 
   /*
