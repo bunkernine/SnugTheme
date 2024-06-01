@@ -405,6 +405,8 @@
 }
 
 .site-header__mobile-nav {
+  display: flex;
+  align-items: center;
   z-index: 11;
   position: relative;
   background-color: var(--color-body);
@@ -708,12 +710,6 @@
   border: none;
   background-color: transparent;
   padding: 3px 10px
-}
-
-.site-header__mobile-nav {
-  z-index: 11;
-  position: relative;
-  background-color: var(--color-body)
 }
 
 @media only screen and (max-width:749px) {

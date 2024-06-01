@@ -71,6 +71,20 @@
 /*================ GLOBAL ================*/
 
 
+@media screen and (min-width: 1367px) {
+  .page-width {
+    max-width: 1600px;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 
