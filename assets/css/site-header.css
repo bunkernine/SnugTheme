@@ -1,6 +1,5 @@
 .site-header {
   position: sticky;
-  /* height: 111px; */
   background-color: var(--color-body);
   border-top: 1px solid black;
   border-bottom: 1px solid black !important;
@@ -21,7 +20,7 @@
 
 @media only screen and (min-width: 750px) {
   .site-header {
-    /* padding: 0 55px;  */
+    padding: 0 55px; 
   }
 
   .site-header.logo--center {
