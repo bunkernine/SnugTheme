@@ -825,12 +825,12 @@
 }
 
 @media screen and (min-width: 750px) {
-  .site-header .medium-up--one-quarter {
-    width: 20%;
-  }
-
   .site-header .site-header__icons {
     width: 10%;
+  }
+
+  .site-header nav.medium-up--one-half {
+    width: 75%;
   }
 }
 
