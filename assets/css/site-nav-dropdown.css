@@ -81,7 +81,7 @@
 /*================ Child list ================*/
 .site-nav__childlist {
  display: inline-block;
- background: var(--color-bg);
+ /* background: var(--color-bg); */
  padding: 11px 17px;
  text-align: left;
 }
