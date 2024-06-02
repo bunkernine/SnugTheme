@@ -861,6 +861,9 @@
   .site-nav__link--button, .site-nav a {
     padding: 3px 5px;
   }
+  .site-nav__link {
+    font-size: 0.75rem;
+  }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1200px) {
