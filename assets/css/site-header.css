@@ -849,7 +849,7 @@
   .site-header__logo img {
     max-width: 100px;
   }
-  .site-header .site-header__mobile-nav {
+  .site-header .grid__item.logo-align--left {
     width: 20%;
   }
   .site-header .site-header__icons {
@@ -858,7 +858,7 @@
 }
 
 @media screen and (min-width: 1201px) and (max-width: 1240px) {
-  .site-header .site-header__mobile-nav {
+  .site-header .grid__item.logo-align--left {
     width: 22.5%;
   }
   .site-header .site-header__icons {
