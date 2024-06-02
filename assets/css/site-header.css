@@ -857,11 +857,17 @@
   }
 }
 
-@media screen and (min-width: 1201px) and (max-width: 1240px) {
+@media screen and (min-width: 1201px) and (max-width: 1366px) {
   .site-header .grid__item.logo-align--left {
     width: 22.5%;
   }
   .site-header .site-header__icons {
     width: 8.5%;
+  }
+}
+
+@media screen and (min-width: 1367px) {
+  .site-header .site-header__icons {
+    width: 15%;
   }
 }
