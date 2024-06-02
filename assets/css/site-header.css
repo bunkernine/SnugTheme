@@ -325,6 +325,11 @@
   transform: translateY(80px);
 }
 
+.mobile-nav-wrapper.js-menu--is-open.sub-nav--is-open .mobile-nav__item {
+  transform: unset !important;
+  transition: unset !important;
+}
+
 .mobile-nav--close .icon-hamburger {
   display: none;
 }
