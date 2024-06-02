@@ -849,19 +849,19 @@
   .site-header__logo img {
     max-width: 100px;
   }
-  .header .site-header__mobile-nav {
+  .site-header .site-header__mobile-nav {
     width: 20%;
   }
-  .header .site-header__icons {
+  .site-header .site-header__icons {
     width: 7%;
   }
 }
 
 @media screen and (min-width: 1201px) and (max-width: 1240px) {
-  .header .site-header__mobile-nav {
+  .site-header .site-header__mobile-nav {
     width: 22.5%;
   }
-  .header .site-header__icons {
+  .site-header .site-header__icons {
     width: 8.5%;
   }
 }
