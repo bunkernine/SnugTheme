@@ -832,7 +832,7 @@
   width: 90px;
   position: absolute;
   top: 0;
-  left: 100px;
+  left: 120px;
   border-left: 1px solid black;
   height: 100%;
   border-right: 1px solid black;
@@ -847,9 +847,6 @@
   }
   .site-header nav.medium-up--one-half {
     width: 90%;
-  }
-  .site-header__logo img {
-    max-width: 100px !important;
   }
   .site-nav__link--button, .site-nav a {
     padding: 3px 5px;
