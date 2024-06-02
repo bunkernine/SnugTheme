@@ -895,3 +895,9 @@
     width: 15%;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .site-header__logo img {
+    margin-left: -1.3rem;
+  }
+}
