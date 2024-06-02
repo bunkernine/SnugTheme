@@ -552,10 +552,6 @@
   }
 }
 
-.site-header__search-toggle {
-  display: block
-}
-
 @media only screen and (min-width:750px) {
 
   .site-header__account,
@@ -899,5 +895,41 @@
 @media screen and (min-width: 1024px) {
   .site-header__logo img {
     margin-left: -1.3rem;
+  }
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1023px) {
+  .site-header .grid__item.logo-align--left,
+  .site-header .site-header__icons {
+    width: unset !important;
+  }
+
+  .site-header .site-header__icons {
+    flex: 1;
+  }
+
+  .site-header nav.medium-up--one-half {
+    display: none;
+  }
+
+  .site-header .site-header__icons-wrapper {
+    gap: 1rem;
+  }
+
+  .site-header .site-header__search-toggle,
+  .site-header .site-header__menu {
+    display: block;
+    padding: 0;
+  }
+
+  .new-image-container::after {
+    display: none;
   }
 }
