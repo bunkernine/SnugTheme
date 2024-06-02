@@ -906,9 +906,14 @@
 
 
 @media screen and (max-width: 1023px) {
+  .site-header {
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+  }
   .site-header .grid__item.logo-align--left,
   .site-header .site-header__icons {
     width: unset !important;
+    padding: 0;
   }
 
   .site-header .site-header__icons {
@@ -931,5 +936,13 @@
 
   .new-image-container::after {
     display: none;
+  }
+
+  .site-header .site-header__logo {
+    margin: 0;
+    padding: 0;
+  }
+  .site-header .site-header__logo-image {
+    padding: 0.5rem 0;
   }
 }
