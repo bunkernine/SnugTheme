@@ -42,11 +42,9 @@
  margin: 0;
  z-index: 7;
  text-align: left;
- /* border: 1px solid var(--color-border); */
  background: var(--color-bg);
  left: 0;
- /* top: 41px; */
- top: 55px;
+ top: 55px !important;
  border: none;
  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 50%, rgb(222 222 222) 100%);
 }
