@@ -876,6 +876,9 @@
   .site-header .site-header__icons {
     width: 7%;
   }
+  .site-nav__link--button, .site-nav a {
+    padding: 3px 8px;
+  }
 }
 
 @media screen and (min-width: 1201px) and (max-width: 1366px) {
