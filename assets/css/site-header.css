@@ -832,7 +832,7 @@
   width: 90px;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 100px;
   border-left: 1px solid black;
   height: 100%;
   border-right: 1px solid black;
@@ -847,9 +847,6 @@
   }
   .site-header nav.medium-up--one-half {
     width: 90%;
-  }
-  .new-image-container::after {
-    display: none;
   }
   .site-header__logo img {
     max-width: 100px !important;
@@ -933,10 +930,6 @@
   .site-header .site-header__menu {
     display: block;
     padding: 0;
-  }
-
-  .new-image-container::after {
-    display: none;
   }
 
   .site-header .site-header__logo {
