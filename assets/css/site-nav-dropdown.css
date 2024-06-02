@@ -119,14 +119,14 @@ body.prevent-scrolling {
 }
 
 .page-width {
- padding-left: 55px;
- padding-right: 55px;
+ padding-left: 2.5rem;
+ padding-right: 2.5rem;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 450px) {
  .page-width {
-   padding-left: 0px;
-   padding-right: 0px;
+   padding-left: 1rem;
+   padding-right: 1rem;
  }
 }
 
