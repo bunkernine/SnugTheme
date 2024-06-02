@@ -12,13 +12,13 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header {
     border-bottom: 1px solid var(--color-border);
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
 
   .site-header.logo--center {
     padding-top: 30px;
@@ -35,14 +35,14 @@
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .logo-align--center .site-header__logo {
     text-align: left;
     margin: 15px 0;
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__logo {
     padding-left: 22px;
     text-align: left;
@@ -58,7 +58,7 @@
   word-break: break-word;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .logo-align--center .site-header__logo-link {
     margin: 0 auto;
   }
@@ -68,7 +68,7 @@
   display: block;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .site-header__logo-image {
     margin: 0 auto;
   }
@@ -91,7 +91,7 @@
   white-space: nowrap;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__icons {
     width: auto;
     padding-right: 13px;
@@ -140,7 +140,7 @@
   display: block;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
 
   .site-header__account,
   .site-header__cart {
@@ -187,7 +187,7 @@
   line-height: 1;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__cart-count {
     top: calc(7em / 16);
     right: 0;
@@ -197,7 +197,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__cart-count span {
     padding: 0.25em calc(6em / 16);
     font-size: 12px;
@@ -207,7 +207,7 @@
 
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .site-header__icon .icon-search {
     margin-right: 3px;
   }
@@ -232,7 +232,7 @@
   font-weight: var(--font-weight-header);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .announcement-bar__message {
     padding-left: 55px;
     padding-right: 55px;
@@ -411,7 +411,7 @@
 
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__mobile-nav {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -431,13 +431,13 @@
   background-color: var(--color-body)
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .site-header {
     border-bottom: 1px solid var(--color-border)
   }
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:750px) {
 
   .site-header.logo--center {
     padding-top: 30px
@@ -449,14 +449,14 @@
   margin: 0 auto
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .logo-align--center .site-header__logo {
     text-align: left;
     margin: 15px 0
   }
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .site-header__logo {
     padding-left: 22px;
     text-align: left
@@ -472,7 +472,7 @@
   word-break: break-word
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:750px) {
   .logo-align--center .site-header__logo-link {
     margin: 0 auto
   }
@@ -484,7 +484,7 @@
   padding: 1.25rem 0;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:750px) {
   .site-header__logo-image {
     margin: 0 auto
   }
@@ -507,7 +507,7 @@
   white-space: nowrap
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .site-header__icons {
     width: auto;
     padding-right: 13px
@@ -556,7 +556,7 @@
   display: block
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:750px) {
 
   .site-header__account,
   .site-header__cart {
@@ -603,7 +603,7 @@
   line-height: 1
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .site-header__cart-count {
     top: calc(7em / 16);
     right: 0;
@@ -613,7 +613,7 @@
   }
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .site-header__cart-count span {
     padding: .25em calc(6em / 16);
     font-size: 12px
@@ -624,7 +624,7 @@
   display: none
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .site-header__icon {
     display: inline-block;
     vertical-align: middle;
@@ -633,7 +633,7 @@
   }
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:750px) {
   .site-header__icon .icon-search {
     margin-right: 3px
   }
@@ -658,7 +658,7 @@
   font-weight: var(--font-weight-header)
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:750px) {
   .announcement-bar__message {
     padding-left: 55px;
     padding-right: 55px
@@ -705,7 +705,7 @@
   padding: 3px 10px
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:749px) {
   .site-header__mobile-nav {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -724,7 +724,7 @@
   display: none
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   .site-header__menu {
     display: block !important;
   }
@@ -752,7 +752,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 750px) {
   .site-header {
     height: 46px;
   }
@@ -812,7 +812,7 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
 
   .template-index .site-header {
     background: none;
@@ -842,7 +842,7 @@
   border-right: 1px solid black;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1023px) {
   .site-header .grid__item.logo-align--left {
     width: 10%;
   }
