@@ -3117,8 +3117,8 @@ function cacheSelectors() {
     cache.mobileNavContainer.style.transform =
       'translateY(' + translateHeaderHeight + 'px)';
 
-    cache.pageContainer.style.transform =
-      'translate3d(0, ' + cache.mobileNavContainer.scrollHeight + 'px, 0)';
+    // cache.pageContainer.style.transform =
+    //   'translate3d(0, ' + cache.mobileNavContainer.scrollHeight + 'px, 0)';
 
     slate.a11y.trapFocus({
       container: cache.sectionHeader,

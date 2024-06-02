@@ -274,6 +274,7 @@
   display: none;
   overflow: hidden;
   width: 100%;
+  height: 100vh !important;
 }
 
 .mobile-nav-wrapper::after {
@@ -787,7 +788,7 @@
   }
 
   .site-header .site-header__logo-image {
-    padding: 0.5rem 0;
+    padding: 1rem 0;
   }
 }
 
