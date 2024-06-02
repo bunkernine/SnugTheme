@@ -895,7 +895,20 @@
 
 
 
+@media screen and (max-width: 450px) {
+  .site-header {
+    padding-right: 1rem !important;
+    padding-left: 0.25rem !important;
+    height: unset !important;
+  }
+  .new-image-container::after {
+    left: 80px;
+  }
 
+  .site-header .site-header__logo img {
+    width: 80px !important;
+  }
+}
 
  
 
