@@ -907,8 +907,9 @@
 
 @media screen and (max-width: 1023px) {
   .site-header {
-    padding-right: 2rem;
-    padding-left: 0.5rem;
+    padding-right: 2rem !important;
+    padding-left: 0.5rem !important;
+    height: unset !important;
   }
   .site-header .grid__item.logo-align--left,
   .site-header .site-header__icons {
