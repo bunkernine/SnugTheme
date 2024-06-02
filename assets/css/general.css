@@ -1387,11 +1387,6 @@ svg:not(:root) {
 /***************** ORGANICLICK  ***********************/
 
 @media only screen and (max-width: 750px) {
-  .new-image-container::after {
-    left: 35% !important;
-    border-right: 1px solid black;
-  }
-
   .slideshow__slide {
     top: -6px !important;
   }
