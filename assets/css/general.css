@@ -70,7 +70,7 @@
 
 /*================ GLOBAL ================*/
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .page-width {
     max-width: 100%;
   }
@@ -109,7 +109,7 @@
   }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .border-right {
     border-right: 0px solid black;
   }
@@ -364,7 +364,7 @@ svg:not(:root) {
   align-items: center;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 768px) {
   .feature-row {
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
@@ -380,7 +380,7 @@ svg:not(:root) {
   flex: 0 1 50%;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .feature-row__item {
     -webkit-flex: 1 1 auto;
     -moz-flex: 1 1 auto;
@@ -408,7 +408,7 @@ svg:not(:root) {
   top: 0;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .feature-row__image {
     order: 1;
   }
@@ -419,14 +419,14 @@ svg:not(:root) {
   padding-bottom: 35px;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .feature-row__text {
     order: 2;
     padding-bottom: 0;
   }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .feature-row__text--left {
     padding-left: 35px;
   }
@@ -436,7 +436,7 @@ svg:not(:root) {
   }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .featured-row__subtext {
     font-size: calc(((var(--font-size-base) + 2) / (var(--font-size-base))) * 1em);
   }
@@ -466,7 +466,7 @@ svg:not(:root) {
   flex-shrink: 0;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .quotes-slide {
     width: 33.33%;
   }
@@ -512,7 +512,7 @@ svg:not(:root) {
   margin: 0;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .quotes-wrapper .slick-dots li:nth-last-child(-n+2) {
     display: none;
   }
@@ -528,7 +528,7 @@ svg:not(:root) {
   opacity: 1;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .quotes-wrapper .slick-dots--mobile-only {
     display: none;
   }
@@ -544,7 +544,7 @@ svg:not(:root) {
   margin-bottom: -35px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .logo-bar--large {
     margin-bottom: -55px;
   }
@@ -557,7 +557,7 @@ svg:not(:root) {
   margin: 0 27.5px 35px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .logo-bar__item--large {
     margin-bottom: 55px;
   }
@@ -577,7 +577,7 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .image-bar {
     max-width: 400px;
     margin: 0 auto;
@@ -638,7 +638,7 @@ svg:not(:root) {
   height: 582px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
 
   .image-bar--x-small .image-bar__content,
   .image-bar--x-small .image-bar__item {
@@ -701,7 +701,7 @@ svg:not(:root) {
   margin-bottom: 22px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .collection-grid-item {
     margin-bottom: 30px;
   }
@@ -722,7 +722,7 @@ svg:not(:root) {
   hyphens: auto;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .collection-grid-item__title {
     padding: 0 15px;
   }
@@ -786,7 +786,7 @@ svg:not(:root) {
   margin-left: -30px;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .custom-content {
     margin-bottom: -22px;
     margin-left: -22px;
@@ -803,7 +803,7 @@ svg:not(:root) {
   max-width: 100%;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .custom__item {
     -webkit-flex: 0 0 auto;
     -moz-flex: 0 0 auto;
@@ -854,7 +854,7 @@ svg:not(:root) {
 }
 
 /*================ Linklist ================*/
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .custom__item.custom__item--link_list {
     flex: 1 0 100%;
     max-width: none;
@@ -866,7 +866,7 @@ svg:not(:root) {
   margin-right: -15px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .custom__linklist {
     margin-left: -12px;
     margin-right: -12px;
@@ -879,7 +879,7 @@ svg:not(:root) {
   margin: 5px 0;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .custom__linklist-link {
     padding: 3px 12px;
     margin-top: 0;
@@ -990,7 +990,7 @@ svg:not(:root) {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   [data-section-type="video-section"] {
     transition: width 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87), height 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87), padding 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
   }
@@ -1001,7 +1001,7 @@ svg:not(:root) {
   padding: 35px 0;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .product-recommendations__inner {
     padding: 55px 0;
   }
@@ -1073,7 +1073,7 @@ svg:not(:root) {
   margin-bottom: 15px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .selectors-form {
     -webkit-justify-content: flex-start;
     -ms-justify-content: flex-start;
@@ -1090,7 +1090,7 @@ svg:not(:root) {
   margin: 0 5px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .selectors-form__item {
     padding-bottom: 0;
   }
@@ -1172,7 +1172,7 @@ svg:not(:root) {
   opacity: 1;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 767px) {
   .store-availabilities-modal--active {
     width: 100%;
     height: 100%;
@@ -1386,7 +1386,7 @@ svg:not(:root) {
 
 /***************** ORGANICLICK  ***********************/
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 767px) {
   .new-image-container::after {
     left: 35% !important;
     border-right: 1px solid black;
@@ -1670,7 +1670,7 @@ hr {
   margin-bottom: -30px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .slideshow__image {
     top: 81px;
   }
@@ -1756,7 +1756,7 @@ dl.price.price--listing {
 /***************** adjust cart page  ***********************/
 
 
-@media screen and (max-width:749px) {
+@media screen and (max-width: 767px) {
   .cart__row {
     display: flex;
     flex-direction: column;
