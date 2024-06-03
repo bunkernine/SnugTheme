@@ -269,3 +269,27 @@
    padding-bottom: 0;
  }
 }
+
+.site-footer__general-info {
+  margin-bottom: 1.25rem;
+  background-color: #f5f6f8;
+}
+
+.site-footer__gi-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.site-footer__gi-item {
+  display: flex;
+  align-items: center;
+}
+
+.site-footer__gi-item img {
+  max-width: 75px;
+}
+
+.site-footer__gi-item p {
+  font-size: 1.25rem;
+}
