@@ -331,7 +331,7 @@
   align-items: center;
 }
 
-.site-footer__payment-icons .payment-icons svg {
+.site-footer__secure-payment .payment-icons svg {
   height: 20px;
   width: auto;
 }
