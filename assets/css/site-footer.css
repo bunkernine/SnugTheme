@@ -318,3 +318,19 @@
   align-items: center;
 }
 
+
+/* secure payment */
+.site-footer__secure-payment {
+  display: flex;
+  justify-content: space-between;
+}
+
+.site-footer__secure-payment .payment-icons {
+  display: flex;
+  align-items: center;
+}
+
+.site-footer__payment-icons .payment-icons svg {
+  height: 20px;
+  width: auto;
+}
