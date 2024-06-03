@@ -323,6 +323,7 @@
 .site-footer__secure-payment {
   display: flex;
   justify-content: space-between;
+  padding: 2rem 0;
 }
 
 .site-footer__secure-payment .payment-icons {
@@ -333,4 +334,20 @@
 .site-footer__payment-icons .payment-icons svg {
   height: 20px;
   width: auto;
+}
+
+/* copyright */
+.site-footer__copyright {
+  background: #f5f6f8;
+}
+.site-footer__copyright-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+.site-footer__copyright .copyright-text {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
