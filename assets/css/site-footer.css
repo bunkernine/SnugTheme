@@ -305,6 +305,10 @@
 .site-header__logo-image {
   padding: 0;
 }
+.site-header__logo-image img {
+  margin-top: -0.75rem;
+  margin-left: -1.3rem;
+}
 .site-footer__address {
   padding: 0.5rem 0;
 }
