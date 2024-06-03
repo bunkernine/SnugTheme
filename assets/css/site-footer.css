@@ -271,14 +271,13 @@
 }
 
 .site-footer__general-info {
-  margin-bottom: 1.25rem;
   background-color: #f5f6f8;
 }
 
 .site-footer__gi-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
 }
 
 .site-footer__gi-item {
