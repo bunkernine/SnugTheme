@@ -20,10 +20,6 @@
   word-break: break-word;
 }
 
-.site-header__logo-image {
-  display: block;
-}
-
 .site-header__logo-image img {
   width: 100%;
 }
@@ -360,7 +356,7 @@
 .site-header__logo-image {
   display: block;
   position: relative;
-  padding: 1.25rem 0;
+  padding: 1rem 0;
 }
 
 .site-header__logo-image img {
@@ -681,10 +677,6 @@
   }
 
   .logo-align--center .site-header__logo-link {
-    margin: 0 auto
-  }
-
-  .site-header__logo-image {
     margin: 0 auto
   }
 
