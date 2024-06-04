@@ -1092,3 +1092,15 @@
    position: relative
   }
  }
+
+ /* custom widths */
+
+ @media only screen and (min-width: 750px) {
+  .custom-product-width__product-image {
+    width: 45%;
+  }
+
+  .custom-product-width__product-details {
+    width: 55%;
+  }
+ }
