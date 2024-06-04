@@ -389,8 +389,8 @@
 
 /* back to top */
 .backto-top {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -398,7 +398,15 @@
   border: 1px solid #ccc;
 }
 
+.backto-top div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .backto-top svg {
   width: 20px;
   height: auto;
+  fill: #595959;
+  margin-left: -0.1rem;
 }
