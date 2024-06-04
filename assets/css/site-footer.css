@@ -331,7 +331,7 @@
 
 .site-footer__secure-payment .secure-payment--text {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .site-footer__secure-payment .secure-payment--text div p:nth-child(1) {
@@ -354,7 +354,7 @@
 .site-footer__secure-payment .payment-icons {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .site-footer__secure-payment .payment-icons p {
