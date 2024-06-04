@@ -580,3 +580,19 @@
    flex: 0 0 12.5%;
  }
 }
+
+
+/* customization */
+.product-template__container .product-single {
+  margin: 0;
+}
+.product-template__container .grid__item {
+  padding: 0;
+  width: unset !important;
+}
+.product-featured__container .product-single__media-wrapper {
+  max-width: unset !important;
+}
+.product-template__container img[data-image-zoom-target] {
+  display: none;
+}
