@@ -590,8 +590,9 @@
   padding: 0;
   /* width: unset !important; */
 }
-.product-featured__container .product-single__media-wrapper {
+.product-template__container .product-single__media-wrapper {
   max-width: unset !important;
+  margin: unset !important;
 }
 .product-template__container img[data-image-zoom-target] {
   display: none;
