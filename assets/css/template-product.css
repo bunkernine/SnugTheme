@@ -588,10 +588,10 @@
 }
 .product-template__container .grid__item {
   padding: 0;
-  width: unset !important;
+  /* width: unset !important; */
 }
 .product-featured__container .product-single__media-wrapper {
-  /* max-width: unset !important; */
+  max-width: unset !important;
 }
 .product-template__container img[data-image-zoom-target] {
   display: none;
