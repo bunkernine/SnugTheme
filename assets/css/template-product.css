@@ -5,16 +5,19 @@
 
 .product-single__title {
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .product__price,
 .featured-product__price {
   font-size: 1.25em;
+  margin-top: 2rem;
 }
 
 .product__policies {
   margin: 0.4rem 0 1rem 0;
-  font-size: calc(((var(--font-size-base) - 1) / (var(--font-size-base))) * 1em);
+  font-size: 0.75rem;
+  text-align: left;
 }
 
 .product-form {
@@ -40,6 +43,7 @@
   flex-basis: 100%;
   margin-bottom: 10px;
   padding: 0;
+  text-align: left;
 }
 
 .product-form__item label {

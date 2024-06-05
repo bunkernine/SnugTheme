@@ -94,6 +94,10 @@
   right: 80px !important;
 }
 
+.jdgm-widget.jdgm-widget {
+  display: flex;
+  justify-content: flex-start;
+}
 
 
 
@@ -1580,11 +1584,6 @@ svg:not(:root) {
 
 }
 
-.product-single__title {
-  text-align: center;
-}
-
-.product__price,
 #automizely_reviews_product_detail_title_star_widget {
   width: fit-content;
   margin: auto;
