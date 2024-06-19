@@ -445,8 +445,7 @@ img[data-image-zoom-target] {
 }
 
 .gallery-thumbs .swiper-slide {
-  width: 100px !important;
-  height: 100px;
+  width: 100% !important;
   text-align: center;
   overflow: hidden;
   opacity: 0.1;
