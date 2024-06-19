@@ -421,7 +421,7 @@ img[data-image-zoom-target] {
 
 .gallery-slider .swiper-slide {
   width: auto;
-  height: 400px;
+  /* height: 400px; */
 }
 
 .gallery-slider .swiper-slide img {
