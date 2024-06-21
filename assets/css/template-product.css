@@ -426,8 +426,9 @@ img[data-image-zoom-target] {
 
 .gallery-slider .swiper-slide img {
   display: block;
-  width: auto;
-  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
 }
 
