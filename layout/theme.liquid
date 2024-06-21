@@ -1,604 +1,553 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_button }}">
+    <meta name="google-site-verification" content="HxkD9vbmtJ3_Ci84MtFOGAvnPtIZN3Ux1U90Ltkr9IY">
+    <meta name="p:domain_verify" content="419996fc2c1336d7a7d22703dbd52d66">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="{{ settings.color_button }}">
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {w[l] = w[l] || []; w[l].push({'gtm.start':new Date().getTime(), event: 'gtm.js'}); var f = d.getElementsByTagName(s)[0],j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true;j.src='https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);})(window, document, 'script', 'dataLayer', 'GTM-TD6XJ98');
+    </script>
+    <!-- End Google Tag Manager -->
 
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {w[l] = w[l] || []; w[l].push({'gtm.start':new Date().getTime(), event: 'gtm.js'}); var f = d.getElementsByTagName(s)[0],j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true;j.src='https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);})(window, document, 'script', 'dataLayer', 'GTM-TD6XJ98');</script>
-  <!-- End Google Tag Manager -->
+    {%- assign header_font = settings.type_header_font -%}
+    {%- assign base_font = settings.type_base_font -%}
+    {%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
+    {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
+    {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
+    {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
 
-  {%- assign header_font = settings.type_header_font -%}
-  {%- assign base_font = settings.type_base_font -%}
-  {%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
-  {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
-  {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
-  {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
+    <!-- <link rel="preload" href="{{ 'theme.min.css' | asset_url }}" as="style"> -->
+    {% comment %}theme-check-disable AssetPreload{% endcomment %}
+    <link rel="preload" as="font" href="{{ header_font | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="{{ base_font | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="{{ base_font_bold | font_url }}" type="font/woff2" crossorigin>
+    {% comment %}theme-check-disable AssetPreload{% endcomment %}
 
-  <link rel="preload" href="{{ 'theme.min.css' | asset_url }}" as="style">
-  <link rel="preload" as="font" href="{{ header_font | font_url }}" type="font/woff2" crossorigin>
-  <link rel="preload" as="font" href="{{ base_font | font_url }}" type="font/woff2" crossorigin>
-  <link rel="preload" as="font" href="{{ base_font_bold | font_url }}" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
+    <!-- <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script"> -->
+    <!-- <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script"> -->
 
-  {%- if settings.favicon != blank -%}
-  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
-  {%- endif -%}
-
-  {%- capture seo_title -%}
-    {%- if request.page_type == 'search' and search.performed == true -%}
-      {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
-    {%- else -%}
-      {{ page_title }}
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32 }}" type="image/png">
     {%- endif -%}
 
-    {%- if current_tags -%}
-      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
-    {%- endif -%}
-
-    {%- if current_page != 1 -%}
-      ndash; {{ 'general.meta.page' | t: page: current_page }}
-    {%- endif -%}
-
-    {%- assign escaped_page_title = page_title | escape -%}
-    {%- unless escaped_page_title contains shop.name -%}
-      &ndash; {{ shop.name }}
-    {%- endunless -%}
-  {%- endcapture -%}
-
-  <title>{{ seo_title | strip }}</title>
-
-  {%- if page_description -%}
-    <meta name="description" content="{{ page_description | escape }}">
-  {%- endif -%}
-
-  {% include 'social-meta-tags' %}
-  {% include 'css-variables' %}
-
-  
-  <style>*,
-::after,
-::before {
- box-sizing: border-box
-}
-
-body {
- margin: 0
-}
-
-body,
-html {
- background-color: var(--color-body)
-}
-
-body,
-button {
- font-size: calc(var(--font-size-base) * 1px);
- font-family: var(--font-stack-body);
- font-style: var(--font-style-body);
- font-weight: var(--font-weight-body);
- color: var(--color-text);
- line-height: 1.5
-}
-
-body,
-button {
- -webkit-font-smoothing: antialiased;
- -webkit-text-size-adjust: 100%
-}
-
-.border-bottom {
- border-bottom: 1px solid var(--color-border)
-}
-
-.btn--link {
- background-color: transparent;
- border: 0;
- margin: 0;
- color: var(--color-text);
- text-align: left
-}
-
-.text-right {
- text-align: right
-}
-
-.icon {
- display: inline-block;
- width: 20px;
- height: 20px;
- vertical-align: middle;
- fill: currentColor
-}
-
-.icon__fallback-text,
-.visually-hidden {
- position: absolute !important;
- overflow: hidden;
- clip: rect(0 0 0 0);
- height: 1px;
- width: 1px;
- margin: -1px;
- padding: 0;
- border: 0
-}
-
-svg.icon:not(.icon--full-color) circle,
-svg.icon:not(.icon--full-color) ellipse,
-svg.icon:not(.icon--full-color) g,
-svg.icon:not(.icon--full-color) line,
-svg.icon:not(.icon--full-color) path,
-svg.icon:not(.icon--full-color) polygon,
-svg.icon:not(.icon--full-color) polyline,
-svg.icon:not(.icon--full-color) rect,
-symbol.icon:not(.icon--full-color) circle,
-symbol.icon:not(.icon--full-color) ellipse,
-symbol.icon:not(.icon--full-color) g,
-symbol.icon:not(.icon--full-color) line,
-symbol.icon:not(.icon--full-color) path,
-symbol.icon:not(.icon--full-color) polygon,
-symbol.icon:not(.icon--full-color) polyline,
-symbol.icon:not(.icon--full-color) rect {
- fill: inherit;
- stroke: inherit
-}
-
-li {
- list-style: none
-}
-
-.list--inline {
- padding: 0;
- margin: 0
-}
-
-.list--inline>li {
- display: inline-block;
- margin-bottom: 0;
- vertical-align: middle
-}
-
-a {
- color: var(--color-text);
- text-decoration: none
-}
-
-.h1,
-.h2,
-h1,
-h2 {
- margin: 0 0 17.5px;
- font-family: var(--font-stack-header);
- font-style: var(--font-style-header);
- font-weight: var(--font-weight-header);
- line-height: 1.2;
- overflow-wrap: break-word;
- word-wrap: break-word
-}
-
-.h1 a,
-.h2 a,
-h1 a,
-h2 a {
- color: inherit;
- text-decoration: none;
- font-weight: inherit
-}
-
-.h1,
-h1 {
- font-size: calc(((var(--font-h1-desktop))/ (var(--font-size-base))) * 1em);
- text-transform: none;
- letter-spacing: 0
-}
-
-@media only screen and (max-width:749px) {
-
- .h1,
- h1 {
-  font-size: calc(((var(--font-h1-mobile))/ (var(--font-size-base))) * 1em)
- }
-}
-
-.h2,
-h2 {
- font-size: calc(((var(--font-h2-desktop))/ (var(--font-size-base))) * 1em);
- text-transform: uppercase;
- letter-spacing: .1em
-}
-
-@media only screen and (max-width:749px) {
-
- .h2,
- h2 {
-  font-size: calc(((var(--font-h2-mobile))/ (var(--font-size-base))) * 1em)
- }
-}
-
-p {
- color: var(--color-body-text);
- margin: 0 0 19.44444px
-}
-
-@media only screen and (max-width:749px) {
- p {
-  font-size: calc(((var(--font-size-base) - 1)/ (var(--font-size-base))) * 1em)
- }
-}
-
-p:last-child {
- margin-bottom: 0
-}
-
-
-
-.mobile-nav--open .icon-close {
- display: none
-}
-
-.main-content {
- opacity: 0
-}
-
-.main-content .shopify-section {
- display: none
-}
-
-.main-content .shopify-section:first-child {
- display: inherit
-}
-
-.critical-hidden {
- display: none
-}
-
-</style>
-
-
-
-
-  <script>
-    window.performance.mark('debut:theme_stylesheet_loaded.start');
-
-    function onLoadStylesheet() {
-      performance.mark('debut:theme_stylesheet_loaded.end');
-      performance.measure('debut:theme_stylesheet_loaded', 'debut:theme_stylesheet_loaded.start', 'debut:theme_stylesheet_loaded.end');
-
-      var url = "{{ 'theme.css' | asset_url }}";
-      var link = document.querySelector('link[href="' + url + '"]');
-      link.loaded = true;
-      link.dispatchEvent(new Event('load'));
-    }
-  </script>
-
-  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';">
-
-  <style>
-    {{ header_font | font_face: font_display: 'swap' }}
-    {{ base_font | font_face: font_display: 'swap' }}
-    {{ base_font_bold | font_face: font_display: 'swap' }}
-    {{ base_font_bolder | font_face: font_display: 'swap' }}
-    {{ base_font_italic | font_face: font_display: 'swap' }}
-    {{ base_font_bold_italic | font_face: font_display: 'swap' }}
-  </style>
-
-  <script>
-    var theme = {
-      breakpoints: {
-        medium: 750,
-        large: 990,
-        widescreen: 1400
-      },
-      strings: {
-        addToCart: {{ 'products.product.add_to_cart' | t | json }},
-        soldOut: {{ 'products.product.sold_out' | t | json }},
-        unavailable: {{ 'products.product.unavailable' | t | json }},
-        regularPrice: {{ 'products.product.regular_price' | t | json }},
-        salePrice: {{ 'products.product.sale_price' | t | json }},
-        sale: {{ 'products.product.on_sale' | t | json }},
-        fromLowestPrice: {{ 'products.product.from_lowest_price_html' | t: lowest_price: '[price]' | json }},
-        vendor: {{ 'products.product.vendor' | t | json }},
-        showMore: {{ 'general.filters.show_more' | t | json }},
-        showLess: {{ 'general.filters.show_less' | t | json }},
-        searchFor: {{ 'general.search.search_for' | t | json }},
-        addressError: {{ 'sections.map.address_error' | t | json }},
-        addressNoResults: {{ 'sections.map.address_no_results' | t | json }},
-        addressQueryLimit: {{ 'sections.map.address_query_limit_html' | t | json }},
-        authError: {{ 'sections.map.auth_error_html' | t | json }},
-        newWindow: {{ 'general.accessibility.link_messages.new_window' | t | json }},
-        external: {{ 'general.accessibility.link_messages.external' | t | json }},
-        newWindowExternal: {{ 'general.accessibility.link_messages.new_window_and_external' | t | json }},
-        removeLabel: {{ 'cart.label.remove' | t: product: '[product]' | json }},
-        update: {{ 'cart.label.update' | t | json }},
-        quantity: {{ 'cart.label.quantity' | t | json }},
-        discountedTotal: {{ 'cart.label.discounted_total' | t | json }},
-        regularTotal: {{ 'cart.label.regular_total' | t | json }},
-        priceColumn: {{ 'cart.label.price_column' | t | json }},
-        quantityMinimumMessage: {{ 'products.product.quantity_minimum_message' | t | json }},
-        cartError: {{ 'cart.general.cart_error' | t | json }},
-        removedItemMessage: {{ 'cart.general.removed_item_html' | t: quantity: '[quantity]', link: '[link]' | json }},
-        unitPrice: {{ 'products.product.unit_price_label' | t | json }},
-        unitPriceSeparator: {{ 'general.accessibility.unit_price_separator' | t | json }},
-        oneCartCount: {{ 'cart.popup.cart_count' | t: count: 1 | json }},
-        otherCartCount: {{ 'cart.popup.cart_count' | t: count: '[count]' | json }},
-        quantityLabel: {{ 'cart.popup.quantity_label' | t: quantity_count: '[count]' | json }},
-        products: {{ 'general.search.products' | t | json }},
-        loading: {{ 'general.search.loading' | t | json }},
-        number_of_results: {{ 'general.search.number_of_results' | t: result_number: '[result_number]', results_count: '[results_count]' | json }},
-        number_of_results_found: {{ 'general.search.number_of_results_found' | t: results_count: '[results_count]' | json }},
-        one_result_found: {{ 'general.search.one_result_found' | t | json }}
-      },
-      moneyFormat: {{ shop.money_format | json }},
-      moneyFormatWithCurrency: {{ shop.money_with_currency_format | json }},
-      settings: {
-        predictiveSearchEnabled: {{ settings.predictive_search_enabled | json }},
-        predictiveSearchShowPrice: {{ settings.predictive_search_show_price | json }},
-        predictiveSearchShowVendor: {{ settings.predictive_search_show_vendor | json }}
-      },
-      stylesheet: "{{ 'theme.css' | asset_url }}"
-    };
-
-    {%- if template == 'collection' -%}
-      {%- if current_tags -%}
-        {%- capture tag_handles -%}
-          {%- for tag in current_tags -%}
-            {{- tag | handle | append: '|' -}}
-          {%- endfor -%}
-        {%- endcapture -%}
+    {%- capture seo_title -%}
+      {%- if request.page_type == 'search' and search.performed == true -%}
+        {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+      {%- else -%}
+        {{ page_title }}
       {%- endif -%}
-    
-      theme.backToCollection = {
-        collection: {
-          title: {{ collection.title | json }},
-          link: "{{ shop.url }}{{ collection.url }}{%- if current_tags -%}/{{- tag_handles | split: '|' | join: '+' -}}{%- endif -%}"
+  
+      {%- if current_tags -%}
+        {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {%- endif -%}
+  
+      {%- if current_page != 1 -%}
+        ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {%- endif -%}
+  
+      {%- assign escaped_page_title = page_title | escape -%}
+      {%- unless escaped_page_title contains shop.name -%}
+        &ndash; {{ shop.name }}
+      {%- endunless -%}
+    {%- endcapture -%}
+
+    <title>{{ seo_title | strip }}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% include 'social-meta-tags' %}
+    {% include 'css-variables' %}
+
+    <style>
+      *,
+      ::after,
+      ::before {
+       box-sizing: border-box
+      }
+
+      body {
+       margin: 0
+      }
+
+      body,
+      html {
+       background-color: var(--color-body)
+      }
+
+      body,
+      button {
+       font-size: calc(var(--font-size-base) * 1px);
+       font-family: var(--font-stack-body);
+       font-style: var(--font-style-body);
+       font-weight: var(--font-weight-body);
+       color: var(--color-text);
+       line-height: 1.5
+      }
+
+      body,
+      button {
+       -webkit-font-smoothing: antialiased;
+       -webkit-text-size-adjust: 100%
+      }
+
+      .border-bottom {
+       border-bottom: 1px solid var(--color-border)
+      }
+
+      .btn--link {
+       background-color: transparent;
+       border: 0;
+       margin: 0;
+       color: var(--color-text);
+       text-align: left
+      }
+
+      .text-right {
+       text-align: right
+      }
+
+      .icon {
+       display: inline-block;
+       width: 20px;
+       height: 20px;
+       vertical-align: middle;
+       fill: currentColor
+      }
+
+      .icon__fallback-text,
+      .visually-hidden {
+       position: absolute !important;
+       overflow: hidden;
+       clip: rect(0 0 0 0);
+       height: 1px;
+       width: 1px;
+       margin: -1px;
+       padding: 0;
+       border: 0
+      }
+
+      svg.icon:not(.icon--full-color) circle,
+      svg.icon:not(.icon--full-color) ellipse,
+      svg.icon:not(.icon--full-color) g,
+      svg.icon:not(.icon--full-color) line,
+      svg.icon:not(.icon--full-color) path,
+      svg.icon:not(.icon--full-color) polygon,
+      svg.icon:not(.icon--full-color) polyline,
+      svg.icon:not(.icon--full-color) rect,
+      symbol.icon:not(.icon--full-color) circle,
+      symbol.icon:not(.icon--full-color) ellipse,
+      symbol.icon:not(.icon--full-color) g,
+      symbol.icon:not(.icon--full-color) line,
+      symbol.icon:not(.icon--full-color) path,
+      symbol.icon:not(.icon--full-color) polygon,
+      symbol.icon:not(.icon--full-color) polyline,
+      symbol.icon:not(.icon--full-color) rect {
+       fill: inherit;
+       stroke: inherit
+      }
+
+      li {
+       list-style: none
+      }
+
+      .list--inline {
+       padding: 0;
+       margin: 0
+      }
+
+      .list--inline>li {
+       display: inline-block;
+       margin-bottom: 0;
+       vertical-align: middle
+      }
+
+      a {
+       color: var(--color-text);
+       text-decoration: none
+      }
+
+
+
+
+
+      .main-content {
+       opacity: 0
+      }
+
+      .main-content .shopify-section {
+       display: none
+      }
+
+      .main-content .shopify-section:first-child {
+       display: inherit
+      }
+
+      .critical-hidden {
+       display: none
+      }
+    </style>
+
+    <script>
+      window.performance.mark('debut:theme_stylesheet_loaded.start');
+
+      function onLoadStylesheet() {
+        performance.mark('debut:theme_stylesheet_loaded.end');
+        performance.measure('debut:theme_stylesheet_loaded', 'debut:theme_stylesheet_loaded.start', 'debut:theme_stylesheet_loaded.end');
+
+        var url = "{{ 'theme.css' | asset_url }}";
+        var link = document.querySelector('link[href="' + url + '"]');
+        link.loaded = true;
+        link.dispatchEvent(new Event('load'));
+      }
+    </script>
+
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/normalize.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/fast-tap.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/grid.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/helper.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/skip-to-content.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/lazy-loading.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/critical.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/basic.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/typography.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/heading.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/hero-slideshow.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/icon.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/rich-text.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/button.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/tables.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/form.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/site-nav-dropdown.css">
+    <!-- <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/slick.css"> -->
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/index.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/site-header.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/site-footer.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/blog-article.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/search.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/cart-popup.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/price.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/slideshow.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/filter.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/video.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/map-section.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/general.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/template-password.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/template-product.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/template-collection.css">
+    <link rel="stylesheet" href="https://bunkernine.github.io/SnugTheme/assets/css/template-cart.css">
+
+    <!--
+      <link
+        rel="stylesheet"
+        href="{{ 'theme.css' | asset_url }}"
+        type="text/css"
+        media="print"
+        onload="this.media='all';"
+      >
+    -->
+
+    <style>
+      {{ header_font | font_face: font_display: 'swap' }}
+      {{ base_font | font_face: font_display: 'swap' }}
+      {{ base_font_bold | font_face: font_display: 'swap' }}
+      {{ base_font_bolder | font_face: font_display: 'swap' }}
+      {{ base_font_italic | font_face: font_display: 'swap' }}
+      {{ base_font_bold_italic | font_face: font_display: 'swap' }}
+    </style>
+
+    <script>
+      var theme = {
+        breakpoints: {
+          medium: 750,
+          large: 990,
+          widescreen: 1400
+        },
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+          regularPrice: {{ 'products.product.regular_price' | t | json }},
+          salePrice: {{ 'products.product.sale_price' | t | json }},
+          sale: {{ 'products.product.on_sale' | t | json }},
+          fromLowestPrice: {{ 'products.product.from_lowest_price_html' | t: lowest_price: '[price]' | json }},
+          vendor: {{ 'products.product.vendor' | t | json }},
+          showMore: {{ 'general.filters.show_more' | t | json }},
+          showLess: {{ 'general.filters.show_less' | t | json }},
+          searchFor: {{ 'general.search.search_for' | t | json }},
+          addressError: {{ 'sections.map.address_error' | t | json }},
+          addressNoResults: {{ 'sections.map.address_no_results' | t | json }},
+          addressQueryLimit: {{ 'sections.map.address_query_limit_html' | t | json }},
+          authError: {{ 'sections.map.auth_error_html' | t | json }},
+          newWindow: {{ 'general.accessibility.link_messages.new_window' | t | json }},
+          external: {{ 'general.accessibility.link_messages.external' | t | json }},
+          newWindowExternal: {{ 'general.accessibility.link_messages.new_window_and_external' | t | json }},
+          removeLabel: {{ 'cart.label.remove' | t: product: '[product]' | json }},
+          update: {{ 'cart.label.update' | t | json }},
+          quantity: {{ 'cart.label.quantity' | t | json }},
+          discountedTotal: {{ 'cart.label.discounted_total' | t | json }},
+          regularTotal: {{ 'cart.label.regular_total' | t | json }},
+          priceColumn: {{ 'cart.label.price_column' | t | json }},
+          quantityMinimumMessage: {{ 'products.product.quantity_minimum_message' | t | json }},
+          cartError: {{ 'cart.general.cart_error' | t | json }},
+          removedItemMessage: {{ 'cart.general.removed_item_html' | t: quantity: '[quantity]', link: '[link]' | json }},
+          unitPrice: {{ 'products.product.unit_price_label' | t | json }},
+          unitPriceSeparator: {{ 'general.accessibility.unit_price_separator' | t | json }},
+          oneCartCount: {{ 'cart.popup.cart_count' | t: count: 1 | json }},
+          otherCartCount: {{ 'cart.popup.cart_count' | t: count: '[count]' | json }},
+          quantityLabel: {{ 'cart.popup.quantity_label' | t: quantity_count: '[count]' | json }},
+          products: {{ 'general.search.products' | t | json }},
+          loading: {{ 'general.search.loading' | t | json }},
+          number_of_results: {{ 'general.search.number_of_results' | t: result_number: '[result_number]', results_count: '[results_count]' | json }},
+          number_of_results_found: {{ 'general.search.number_of_results_found' | t: results_count: '[results_count]' | json }},
+          one_result_found: {{ 'general.search.one_result_found' | t | json }}
+        },
+        moneyFormat: {{ shop.money_format | json }},
+        moneyFormatWithCurrency: {{ shop.money_with_currency_format | json }},
+        settings: {
+          predictiveSearchEnabled: {{ settings.predictive_search_enabled | json }},
+          predictiveSearchShowPrice: {{ settings.predictive_search_show_price | json }},
+          predictiveSearchShowVendor: {{ settings.predictive_search_show_vendor | json }}
+        },
+        stylesheet: "{{ 'theme.css' | asset_url }}"
+      };
+
+      {%- if template == 'collection' -%}
+        {%- if current_tags -%}
+          {%- capture tag_handles -%}
+            {%- for tag in current_tags -%}
+              {{- tag | handle | append: '|' -}}
+            {%- endfor -%}
+          {%- endcapture -%}
+        {%- endif -%}
+
+        theme.backToCollection = {
+          collection: {
+            title: {{ collection.title | json }},
+            link: "{{ shop.url }}{{ collection.url }}{%- if current_tags -%}/{{- tag_handles | split: '|' | join: '+' -}}{%- endif -%}"
+          }
+        };
+        sessionStorage.setItem("backToCollection", JSON.stringify(theme.backToCollection.collection));
+
+      {%- elsif template != 'product' -%}
+        if (sessionStorage.getItem("backToCollection")) {
+          sessionStorage.removeItem("backToCollection")
+        }
+      {%- endif -%}
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    {%- if request.page_type contains 'customers/' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <!-- <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script> -->
+    <!-- <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script> -->
+
+    <script type="text/javascript">
+      if (window.MSInputMethodContext && document.documentMode) {
+        var scripts = document.getElementsByTagName('script')[0];
+        var polyfill = document.createElement("script");
+        polyfill.defer = true;
+        polyfill.src = "{{ 'ie11CustomProperties.min.js' | asset_url }}";
+
+        scripts.parentNode.insertBefore(polyfill, scripts);
+      }
+    </script>
+
+    {{ content_for_header }}
+
+    {% include 'judgeme_core' %}
+
+    <!-- Google Webmaster Tools Site Verification -->
+    <meta name="google-site-verification" content="gKJ0V621HrHrYMpXyqCqHveBSZILCioghcqQmxzYKsw">
+    <!-- Google Webmaster Tools Site Verification -->
+    <meta name="google-site-verification" content="IhVlN7cpd015sy6KA-ZypLQ4_SZglUZuwzK97FuH3h0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-429089869"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'AW-429089869');
+    </script>
+    <script>
+      gtag('event', 'page_view', {
+        'send_to': 'AW-429089869',
+        'value': '{{ product.price | money_without_currency }}',
+        'items': [{
+          'id': 'shopify_US_{{product.id}}_{{ product.variants.first.id }}',
+          'google_business_vertical': 'retail'
+        }]
+      });
+    </script>
+
+    <script type="text/javascript">
+      window.tegsoft_webchat_v3_options = {
+        tegsoft_hostname: "premicall.tegsoftcloud.com", /** Your Tegsoft instance FQDN needs to be defined here */
+        layout: {
+          companyLogo: "https://snugbrandwear.com/cdn/shop/files/Snug_Logo_Design_1_-10_copy_180x_d5abd8fa-345a-4ad9-855b-02c91b1bfc32_180x.png?v=1697134996",
+          chatIconURL: "https://cdn-icons-png.freepik.com/512/14715/14715173.png?filename=communication_14715173.png&fd=1",
+          closeIconURL: "",
+          iconWidth: "70px",
+          iconHeight: "70px",
+          iconBackgroundColor: "#ffffff00",
+          height: "520px",
+          width: "320px",
+          maxWidth: "792px",
+          border: "",
+          fontType: "",
+          fontSize: "",
+          textColor: "",
+          messageMargin: "",
+          backgroundColor: "",
+          headerBackgroundColor: "",
+          messageFontSize: "",
+          contactMessageColor: "",
+          contactMessageBackgroundColor: "",
+          agentMessageColor: "",
+          agentMessageBackgroundColor: "",
+          systemMessageColor: "",
+          systemMessageBackgroundColor: "",
+          systemMessageFontSize: "",
+          buttonBackgroundColor: "",
+          buttonTextColor: "",
+          buttonFontSize: "",
+          startButtonPadding: "10px 50px"
+        },
+        position: {
+          right: "15px",
+          bottom: "10px"
+        },
+        whatsapp_options: {
+          enabled: true,
+          whatsapp_number: "+908502550358",
+          tooltip: "whatsapp"
+        },
+        facebook_options: {
+          enabled: false,
+          facebook_username: "SNUG-Brandwear-100063704942484",
+          tooltip: "facebook"
+        },
+        instagram_options: {
+          enabled: true,
+          instagram_username: "snug_brandwear",
+          tooltip: "instagram"
+        },
+        video_call_options: {
+          enabled: false,
+          tooltip: "Video call",
+          DID: "3101515"
+        },
+        webchat_options: {
+          /** All empty items are optional. */
+          enabled: false,
+          tooltip: "webchat",
+          disableSkill: "false",
+          disablePhone: "false",
+          disableEmail: "false",
+          SKILLID: "000d89b3-bb70-423c-83c6-09a00e998467",
+          TRUNKID: "",
+          SUBJECT: "",
+          CONTID: "",
+          FIRSTNAME: "",
+          LASTNAME: "",
+          EMAIL: "",
+          PHONE: "",
+          input_rows: {
+            firstNameRowVisible: true, /** Add name input to the name */
+            firstNameRowEditable: true, /** Allow/restrict edidting name */
+            lastNameRowVisible: true, /** Add surname input to the form */
+            lastNameRowEditable: true, /** Allow/restrict edidting surname */
+            emailRowVisible: true, /** Allow/restrict edidting email */
+            emailRowEditable: true, /** Add email input to the form */
+            emailIsOptional: true, /** Make email optional */
+            phoneRowVisible: true, /** Add phone input to the form */
+            phoneRowEditable: true, /** Allow/restrict edidting phone */
+            phoneIsOptional: true, /** Make phone optional */
+            skillRowVisible: false, /** Add skill input to the form */
+            skillRowEditable: false, /** Allow/restrict edidting skill */
+          },
+          input_fields: { /** Customize the labels of input fields */
+            locale: "tr",
+            firstNameInputLabel: "",
+            lastNameInputLabel: "",
+            emailInputLabel: "",
+            phoneInputLabel: "",
+            skillInputLabel: ""
+          },
+          start_with: {
+            mobile_popupType: "", /** Options are: default and autoStart. autoStart allows auto popup on mobile.*/
+            start_delay: "0", /** delay in seconds. Default: 5 seconds */
+            start_popupType: "default" /** options are: registration, anonymous, default and autoStart. The default is registration */
+          },
         }
       };
-      sessionStorage.setItem("backToCollection", JSON.stringify(theme.backToCollection.collection));
+    </script>
 
-    {%- elsif template != 'product' -%}
-      if (sessionStorage.getItem("backToCollection")) {
-        sessionStorage.removeItem("backToCollection")
-      }
+    <script src="https://premicall.tegsoftcloud.com/Tobe/forms/TegsoftVue/tegsoft_webchat_v3.js" defer></script>
+    {% render 'qikify-apps' %}
+
+    {{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+    {% comment %}
+    {{ 'go-cart.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'go-cart.js' | asset_url }}" defer></script>
+    <script src="{{ 'swiper.js' | asset_url }}" defer></script>
+    {% endcomment %}
+  </head>
+  
+  <body class="template-{{ request.page_type | handle }}" id="PageContainer">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TD6XJ98"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <a class="in-page-link visually-hidden skip-link" href="#MainContent">
+      {{- 'general.accessibility.skip_to_content' | t -}}
+    </a>
+
+    {%- if settings.enable_ajax -%}
+      {% include 'cart-popup' %}
     {%- endif -%}
-    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-  </script>
 
-  {%- if request.page_type contains 'customers/' -%}
-    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
-  {%- endif -%}
+    {% sections 'header-group' %}
 
-  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
+    <main id="MainContent" class="main-content js-focus-hidden" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
 
-  <script type="text/javascript">
-    if (window.MSInputMethodContext && document.documentMode) {
-      var scripts = document.getElementsByTagName('script')[0];
-      var polyfill = document.createElement("script");
-      polyfill.defer = true;
-      polyfill.src = "{{ 'ie11CustomProperties.min.js' | asset_url }}";
+    {% sections 'footer-group' %}
 
-      scripts.parentNode.insertBefore(polyfill, scripts);
-    }
-  </script>
-
-
-  {% if template.name == "index" %}
-  {% render 'manual_content_for_header' %}
-  {% else %}
-  {{ content_for_header }}
-  {% endif %}
-
-  {% include 'pagefly-header' %}
-  {% include 'judgeme_core' %}
-
-
-
-  <!-- Google Webmaster Tools Site Verification -->
-  <meta name="google-site-verification" content="gKJ0V621HrHrYMpXyqCqHveBSZILCioghcqQmxzYKsw" />
-  <!-- Google Webmaster Tools Site Verification -->
-  <meta name="google-site-verification" content="IhVlN7cpd015sy6KA-ZypLQ4_SZglUZuwzK97FuH3h0" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-429089869"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'AW-429089869');
-  </script>
-  <script>
-    gtag('event', 'page_view', {
-      'send_to': 'AW-429089869',
-      'value': '{{ product.price | money_without_currency }}',
-      'items': [{
-        'id': 'shopify_US_{{product.id}}_{{ product.variants.first.id }}',
-        'google_business_vertical': 'retail'
-      }]
-    });
-  </script>
-
-  <script type='text/javascript'>
-    window.tegsoft_webchat_v3_options = {
-      tegsoft_hostname: "premicall.tegsoftcloud.com", /** Your Tegsoft instance FQDN needs to be defined here */
-      layout: {
-        companyLogo: "https://snugbrandwear.com/cdn/shop/files/Snug_Logo_Design_1_-10_copy_180x_d5abd8fa-345a-4ad9-855b-02c91b1bfc32_180x.png?v=1697134996",
-        chatIconURL: "https://cdn-icons-png.freepik.com/512/14715/14715173.png?filename=communication_14715173.png&fd=1",
-        closeIconURL: "",
-        iconWidth: "70px",
-        iconHeight: "70px",
-        iconBackgroundColor: "#ffffff00",
-        height: "520px",
-        width: "320px",
-        maxWidth: "792px",
-        border: "",
-        fontType: "",
-        fontSize: "",
-        textColor: "",
-        messageMargin: "",
-        backgroundColor: "",
-        headerBackgroundColor: "",
-        messageFontSize: "",
-        contactMessageColor: "",
-        contactMessageBackgroundColor: "",
-        agentMessageColor: "",
-        agentMessageBackgroundColor: "",
-        systemMessageColor: "",
-        systemMessageBackgroundColor: "",
-        systemMessageFontSize: "",
-        buttonBackgroundColor: "",
-        buttonTextColor: "",
-        buttonFontSize: "",
-        startButtonPadding: "10px 50px"
-      },
-      position: {
-        right: "15px",
-        bottom: "10px"
-      },
-      whatsapp_options: {
-        enabled: true,
-        whatsapp_number: "+908502550358",
-        tooltip: "whatsapp"
-      },
-      facebook_options: {
-        enabled: false,
-        facebook_username: "SNUG-Brandwear-100063704942484",
-        tooltip: "facebook"
-      },
-      instagram_options: {
-        enabled: true,
-        instagram_username: "snug_brandwear",
-        tooltip: "instagram"
-      },
-      video_call_options: {
-        enabled: false,
-        tooltip: "Video call",
-        DID: "3101515"
-      },
-      webchat_options: {
-        /** All empty items are optional. */
-        enabled: false,
-        tooltip: "webchat",
-        disableSkill: "false",
-        disablePhone: "false",
-        disableEmail: "false",
-        SKILLID: "000d89b3-bb70-423c-83c6-09a00e998467",
-        TRUNKID: "",
-        SUBJECT: "",
-        CONTID: "",
-        FIRSTNAME: "",
-        LASTNAME: "",
-        EMAIL: "",
-        PHONE: "",
-        input_rows: {
-          firstNameRowVisible: true, /** Add name input to the name */
-          firstNameRowEditable: true, /** Allow/restrict edidting name */
-          lastNameRowVisible: true, /** Add surname input to the form */
-          lastNameRowEditable: true, /** Allow/restrict edidting surname */
-          emailRowVisible: true, /** Allow/restrict edidting email */
-          emailRowEditable: true, /** Add email input to the form */
-          emailIsOptional: true, /** Make email optional */
-          phoneRowVisible: true, /** Add phone input to the form */
-          phoneRowEditable: true, /** Allow/restrict edidting phone */
-          phoneIsOptional: true, /** Make phone optional */
-          skillRowVisible: false, /** Add skill input to the form */
-          skillRowEditable: false, /** Allow/restrict edidting skill */
-        },
-        input_fields: { /** Customize the labels of input fields */
-          locale: "tr",
-          firstNameInputLabel: "",
-          lastNameInputLabel: "",
-          emailInputLabel: "",
-          phoneInputLabel: "",
-          skillInputLabel: ""
-        },
-        start_with: {
-          mobile_popupType: "", /** Options are: default and autoStart. autoStart allows auto popup on mobile.*/
-          start_delay: "0", /** delay in seconds. Default: 5 seconds */
-          start_popupType: "default" /** options are: registration, anonymous, default and autoStart. The default is registration */
-        },
+    <script type="application/json" data-cart-routes>
+      {
+        "cartUrl": "{{ routes.cart_url }}",
+        "cartAddUrl": "{{ routes.cart_add_url }}",
+        "cartChangeUrl": "{{ routes.cart_change_url }}"
       }
-    };
+    </script>
 
-  </script>
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
+      <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
+    </ul>
 
-  <script type="text/javascript"
-    src="https://premicall.tegsoftcloud.com/Tobe/forms/TegsoftVue/tegsoft_webchat_v3.js"></script> {% render
-  'qikify-apps' %}
-  <meta name="google-site-verification" content="HxkD9vbmtJ3_Ci84MtFOGAvnPtIZN3Ux1U90Ltkr9IY" />
-
-  <meta name="p:domain_verify" content="419996fc2c1336d7a7d22703dbd52d66" />
-
-
-
-  {{ 'go-cart.css' | asset_url | stylesheet_tag }}
-  {{ 'swiper.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'go-cart.js' | asset_url }}" defer></script>
-  <script src="{{ 'swiper.js' | asset_url }}" defer></script>
-
-  {% include 'pagefly-app-header' %}
-</head>
-
-<body class="template-{{ request.page_type | handle }}" id="PageContainer">
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD6XJ98" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
-
-  {%- if settings.enable_ajax -%}
-    {% include 'cart-popup' %}
-  {%- endif -%}
-
-  {% section 'header' %}
-
-
-
-  <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
-    {{ content_for_layout }}
-  </main>
-
-  {% section 'footer' %}
-
-  <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
-    {{- 'sections.slideshow.navigation_instructions' | t -}}
-  </div>
-
-  <script type="application/json" data-cart-routes>
-    {
-      "cartUrl": "{{ routes.cart_url }}",
-      "cartAddUrl": "{{ routes.cart_add_url }}",
-      "cartChangeUrl": "{{ routes.cart_change_url }}"
-    }
-  </script>
-
-  <ul hidden>
-    <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
-    <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
-  </ul>
-  <script>
-    document.querySelectorAll('.grid-view-item__image_lazy').forEach(function (element, index) {
-      element.setAttribute("src", element.getAttribute("data-src"));
-    });
-  </script>
-  <!--sea-startt-cb308c75-4592-4ee9-97d9-6a35325d1d7c-->
-  <!--DO-NOT-REMOVE-THIS-CONTENT-START-->
-
-  <!--DO-NOT-REMOVE-THIS-CONTENT-END-->
-  <!--sea-endddd-cb308c75-4592-4ee9-97d9-6a35325d1d7c-->
-
-
-
-  <!-- Go Cart -->
-  <div class="go-cart">
-    {% render 'go-cart' %}
-  </div>
-
-</body>
-
+    <!-- Go Cart -->
+    <div class="go-cart">
+      {% comment %}{% render 'go-cart' %}{% endcomment %}
+    </div>
+  </body>
 </html>

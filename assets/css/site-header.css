@@ -333,7 +333,7 @@
 .site-header__mobile-nav {
   display: flex;
   align-items: center;
-  z-index: 11;
+  /* z-index: 11; */
   position: relative;
   background-color: var(--color-body);
 
@@ -758,7 +758,7 @@
 
 @media only screen and (min-width: 768px) {
   .template-product .site-header {
-    z-index: 99999999999;
+    /* z-index: 99999999999; */
   }
 }
 
