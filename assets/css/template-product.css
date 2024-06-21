@@ -458,8 +458,8 @@ img[data-image-zoom-target] {
 }
 
 .gallery-thumbs .swiper-slide img {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 @media only screen and (max-width: 749px) {
