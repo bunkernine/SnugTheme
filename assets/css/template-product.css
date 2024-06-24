@@ -381,7 +381,7 @@
 }
 
 .product-template__container .product-single__media-wrapper {
-  max-width: unset !important;
+  /* max-width: unset !important; */
   margin: unset !important;
 }
 
