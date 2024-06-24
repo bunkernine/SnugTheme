@@ -256,57 +256,57 @@ hr {
 
 @-webkit-keyframes image-loader {
  0% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  50% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  100% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 }
 
 @-moz-keyframes image-loader {
  0% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  50% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  100% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 }
 
 @-ms-keyframes image-loader {
  0% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  50% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  100% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 }
 
 @keyframes image-loader {
  0% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  50% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 
  100% {
-   background-color: var(--global-color-image-loader-primary);
+   background-color:#f5f5f8;
  }
 }
 

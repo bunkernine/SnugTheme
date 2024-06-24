@@ -1104,7 +1104,3 @@
     width: 50%;
   }
  }
-
- /* {% comment %}Start automatically added Judge.me widget{% endcomment %} */
-    /* {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true, product: product %} */
-    /* {% comment %}End automatically added Judge.me widget{% endcomment %} */
