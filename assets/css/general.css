@@ -70,25 +70,6 @@
 
 /*================ GLOBAL ================*/
 
-@media screen and (min-width: 750px) {
-  .page-width {
-    max-width: 100%;
-  }
-  .page-width--padding {
-    padding: 0 2.5rem;
-  }
-}
-
-@media screen and (min-width: 1367px) {
-  .page-width {
-    max-width: 1600px;
-  }
-
-  .page-width--padding {
-    padding: 0 2.5rem;
-  }
-}
-
 
 #tegsoftV3__chat-box-wrapper {
   right: 80px !important;

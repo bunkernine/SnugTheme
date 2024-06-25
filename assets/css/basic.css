@@ -1,33 +1,49 @@
 /*================ #Basic Styles ================*/
 .page-width {
- *zoom: 1;
- max-width: 1200px;
- margin: 0 auto;
+  *zoom: 1;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .page-width::after {
- content: '';
- display: table;
- clear: both;
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .main-content {
- display: block;
- padding-top: 35px;
-}
-
-@media only screen and (min-width: 750px) {
- .main-content {
-  padding-top: 0;
- }
+  display: block;
+  padding-top: 35px;
 }
 
 .section-header {
- margin-bottom: 35px;
+  margin-bottom: 35px;
 }
 
 @media only screen and (min-width: 750px) {
- .section-header {
-  margin-bottom: 55px;
- }
+  .main-content {
+    padding-top: 0;
+  }
+
+  .section-header {
+    margin-bottom: 55px;
+  }
+
+  .page-width {
+    max-width: 100%;
+  }
+
+  .page-width--padding {
+    padding: 0 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1367px) {
+  .page-width {
+    max-width: 1600px;
+  }
+
+  .page-width--padding {
+    padding: 0 2.5rem;
+  }
 }
