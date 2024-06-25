@@ -487,7 +487,9 @@
 
 .site-nav__link {
   display: block;
-  white-space: nowrap
+  white-space: nowrap;
+  color: #000;
+  font-family: var(--font-stack-header);
 }
 
 .site-nav--centered .site-nav__link {
