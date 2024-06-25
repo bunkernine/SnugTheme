@@ -1632,8 +1632,8 @@ dl.price {
 
 /***************** Padding header and footer  ***********************/
 .index-section {
-  padding-top: 10px;
-  padding-bottom: 30px;
+  /* padding-top: 10px;
+  padding-bottom: 30px; */
 }
 
 hr {
@@ -1651,7 +1651,7 @@ hr {
 
 @media only screen and (min-width: 750px) {
   .slideshow__image {
-    top: 81px;
+    /* top: 81px; */
   }
 
   /*
