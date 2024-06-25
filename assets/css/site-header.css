@@ -387,6 +387,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  gap: 1rem;
   width: 100%;
   -ms-flex-align: center;
   -webkit-align-items: center;
